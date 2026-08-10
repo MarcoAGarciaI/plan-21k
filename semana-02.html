@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<h1>prueba</h1><!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 2 · Bloque 1 · 21K CDMX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A1620; --panel:#102431; --panel-2:#16303F; --line:#23414F;
+  --ink:#DCE8EC; --ink-dim:#7E9AA6; --ink-faint:#4E6C79;
+  --easy:#3E9B8F; --quality:#E8A33D; --long:#4B8FD4; --gym:#9B7BC4;
+  --rest:#3A5361; --alert:#D9553B;
+  --display:'Space Grotesk',system-ui,sans-serif;
+  --body:'IBM Plex Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:820px;margin:0 auto;padding:0 18px 70px}
+
+.masthead{padding:36px 0 24px;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:12px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(30px,8vw,48px);line-height:1.02;letter-spacing:-.02em}
+h1 em{font-style:normal;color:var(--ink-faint)}
+.subline{color:var(--ink-dim);margin-top:12px;font-size:14.5px}
+
+.gauges{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:1px;background:var(--line);margin-top:24px;border:1px solid var(--line)}
+.gauge{background:var(--panel);padding:14px 16px}
+.gauge .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.gauge .v{font-family:var(--mono);font-size:22px;font-weight:600;margin-top:5px;letter-spacing:-.02em}
+.gauge .n{font-size:11.5px;color:var(--ink-dim);margin-top:2px}
+.gauge.hot .v{color:var(--quality)}
+.gauge.alert .v{color:var(--alert)}
+.gauge.good .v{color:var(--easy)}
+
+section{padding-top:42px}
+.sec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.sec-num{font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);letter-spacing:.14em}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(19px,4.5vw,25px);letter-spacing:-.01em}
+.sec-note{color:var(--ink-dim);font-size:14px;margin-bottom:18px}
+
+.rule{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--quality);padding:16px 18px;margin-bottom:14px}
+.rule.hard{border-left-color:var(--alert)}
+.rule.ok{border-left-color:var(--easy)}
+.rule .rt{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--quality);margin-bottom:6px}
+.rule.hard .rt{color:var(--alert)}
+.rule.ok .rt{color:var(--easy)}
+.rule p{font-size:14.5px}
+.rule strong{font-weight:600}
+
+.days{border:1px solid var(--line);background:var(--panel)}
+.day{display:grid;grid-template-columns:96px 1fr;gap:14px;padding:15px 16px;border-bottom:1px solid var(--line)}
+.day:last-child{border-bottom:none}
+.day.hero{background:var(--panel-2)}
+.day-name{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);padding-top:3px}
+.day-name b{display:block;color:var(--ink-dim);font-size:15px;font-weight:600;letter-spacing:0;margin-top:2px}
+.slots{display:flex;flex-direction:column;gap:11px}
+.slot{display:flex;gap:10px;align-items:flex-start}
+.tag{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:3px;white-space:nowrap;flex-shrink:0;margin-top:3px;color:#07131B;font-weight:600}
+.t-easy{background:var(--easy)}.t-long{background:var(--long)}
+.t-gym{background:var(--gym)}.t-rest{background:var(--rest);color:var(--ink-dim)}
+.slot-body strong{font-weight:600;display:block;font-size:15px;margin-bottom:3px}
+.slot-body p{font-size:13.5px;color:var(--ink-dim)}
+.slot-body .mono{font-family:var(--mono);font-size:12.5px;color:var(--ink);letter-spacing:-.01em}
+
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel);border:1px solid var(--line)}
+th{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);font-weight:500}
+td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.hi{color:var(--alert);font-weight:600}
+td.lo{color:var(--easy);font-weight:600}
+
+.foot{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-faint);font-family:var(--mono);line-height:1.7}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="eyebrow">Bloque 1 · Adaptación estructural · 21K CDMX 13 dic 2026</div>
+  <h1>Semana 2 <em>/ 19</em></h1>
+  <div class="subline">Lunes 10 — domingo 16 de agosto de 2026 · 18 semanas para la salida</div>
+
+  <div class="gauges">
+    <div class="gauge"><div class="k">Volumen</div><div class="v">11 km</div><div class="n">ajustado de 13</div></div>
+    <div class="gauge"><div class="k">Tirada larga</div><div class="v">5 km</div><div class="n">sin recorte</div></div>
+    <div class="gauge hot"><div class="k">Ritmo fácil</div><div class="v">11:00</div><div class="n">min/km · rango 10:30–11:30</div></div>
+    <div class="gauge"><div class="k">Método</div><div class="v">4:1</div><div class="n">correr / caminar</div></div>
+    <div class="gauge alert"><div class="k">Adherencia S1</div><div class="v">67 %</div><div class="n">2 de 3 · umbral 85 %</div></div>
+    <div class="gauge"><div class="k">Sesiones</div><div class="v">3 + 4</div><div class="n">carrera + gimnasio</div></div>
+  </div>
+</header>
+
+<section>
+  <div class="sec-head"><span class="sec-num">01</span><h2>Las tres reglas de la semana</h2></div>
+  <div class="sec-note">Si solo retienes esto, la semana sale bien.</div>
+
+  <div class="rule hard">
+    <div class="rt">Regla dura · ritmo</div>
+    <p>Ningún tramo corrido por debajo de <strong>10:20 min/km</strong>. Si el reloj lo marca, caminas 60 segundos y retomas. <strong>Prefiero 3 km en 34 minutos que en 25.</strong> Corriste la semana 1 a 8:00 y 8:23 — ese es el error que te lesiona, no la falta de volumen.</p>
+  </div>
+
+  <div class="rule">
+    <div class="rt">Método · correr / caminar</div>
+    <p><strong>4 minutos corriendo · 1 minuto caminando</strong>, en bucle, hasta completar la distancia. La caminata cuenta en el total. No es una versión suave del plan: corta la deriva cardiaca y baja 15–20 % los impactos por kilómetro.</p>
+  </div>
+
+  <div class="rule ok">
+    <div class="rt">Control · prueba del habla</div>
+    <p>Durante el tramo corrido debes poder decir <strong>una frase completa sin cortar el aire</strong>. Si no puedes, vas rápido — independientemente de lo que diga el reloj. Vuelve a activar la FC continua en el reloj esta semana.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">02</span><h2>La semana, día por día</h2></div>
+  <div class="sec-note">11 km de carrera · 4 sesiones de gimnasio · domingo innegociable.</div>
+
+  <div class="days">
+
+    <div class="day">
+      <div class="day-name">Lunes<b>10 ago</b></div>
+      <div class="slots">
+        <div class="slot"><span class="tag t-rest">Sin correr</span></div>
+        <div class="slot"><span class="tag t-gym">Gym</span><div class="slot-body">
+          <strong>Pierna fuerza + core</strong>
+          <p class="mono">Sentadilla o prensa 4×5 · RDL 3×6 · Elevación de talón de pie 3×12 · Core 10 min</p>
+          <p>Carga alta, <strong>sin llegar al fallo</strong>. Modo fuerza, no hipertrofia. La elevación de talón no es accesoria: sóleo y Aquiles son tu punto de falla más probable.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-name">Martes<b>11 ago</b></div>
+      <div class="slots">
+        <div class="slot"><span class="tag t-easy">Fácil</span><div class="slot-body">
+          <strong>3 km · 4:1</strong>
+          <p class="mono">10:30–11:30 min/km · ~33 min · calle en llano</p>
+          <p>Primer rodaje al ritmo correcto. Se va a sentir absurdamente lento. Es la señal de que lo estás haciendo bien.</p>
+        </div></div>
+        <div class="slot"><span class="tag t-gym">Gym</span><div class="slot-body">
+          <strong>Empuje · volumen recortado</strong>
+          <p>Baja una serie por ejercicio respecto a tu rutina normal. Tu tren superior ya está en 135–143 % del ideal; en carrera es peso muerto que cargas 21 km.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-name">Miércoles<b>12 ago</b></div>
+      <div class="slots">
+        <div class="slot"><span class="tag t-rest">Sin correr</span></div>
+        <div class="slot"><span class="tag t-gym">Gym</span><div class="slot-body">
+          <strong>Tracción + core</strong>
+          <p>Mismo recorte de una serie por ejercicio.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-name">Jueves<b>13 ago</b></div>
+      <div class="slots">
+        <div class="slot"><span class="tag t-rest">Descanso</span><div class="slot-body">
+          <strong>Sin carrera, sin gimnasio</strong>
+          <p>El trabajo de calidad entra hasta la semana 9. Hoy no hay nada que ganar.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-name">Viernes<b>14 ago</b></div>
+      <div class="slots">
+        <div class="slot"><span class="tag t-easy">Fácil</span><div class="slot-body">
+          <strong>3 km · 4:1</strong>
+          <p class="mono">10:30–11:30 min/km · ~33 min</p>
+        </div></div>
+        <div class="slot"><span class="tag t-gym">Gym</span><div class="slot-body">
+          <strong>Accesorios + core + sóleo</strong>
+          <p class="mono">Elevación de talón sentado (rodilla flexionada) 3×15 · Core 10 min</p>
+          <p><strong>Segunda dosis de pantorrilla de la semana, nueva.</strong> Con la rodilla flexionada el trabajo va al sóleo, que es el músculo que más carga absorbe corriendo y el que peor tolera el volumen a tu peso.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="day hero">
+      <div class="day-name">Sábado<b>15 ago</b></div>
+      <div class="slots">
+        <div class="slot"><span class="tag t-long">Tirada larga</span><div class="slot-body">
+          <strong>5 km · 4:1</strong>
+          <p class="mono">11:00–11:45 min/km · ~57 min · afuera, con calor</p>
+          <p><strong>La sesión más importante del bloque y la que faltó la semana pasada.</strong> Nada de caminadora ni aire acondicionado: el calor y la humedad de Cancún expanden el volumen plasmático y eso transfiere a tolerancia de altitud en diciembre.</p>
+          <p><strong>Salida de emergencia:</strong> si a partir del km 3 aparece rigidez que no cede, cierras en 4 km caminando el último. Terminar 4 km entero vale más que abandonar en 5.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-name">Domingo<b>16 ago</b></div>
+      <div class="slots">
+        <div class="slot"><span class="tag t-rest">Descanso total</span><div class="slot-body">
+          <strong>Innegociable</strong>
+          <p>Cero carrera, cero gimnasio. Este día es de Fernanda, no del plan.</p>
+        </div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">03</span><h2>Dónde estás parado</h2></div>
+  <div class="sec-note">Semana 1 cerró en 61 % del volumen y sin tirada larga.</div>
+
+  <table>
+    <thead><tr><th>Concepto</th><th>Planeado S1</th><th>Real S1</th><th>Estado</th></tr></thead>
+    <tbody>
+      <tr><td>Volumen</td><td class="n">10.0 km</td><td class="n">6.1 km</td><td class="hi">61 %</td></tr>
+      <tr><td>Sesiones de carrera</td><td class="n">3</td><td class="n">2</td><td class="hi">67 %</td></tr>
+      <tr><td>Tirada larga</td><td class="n">4 km</td><td class="n">0 km</td><td class="hi">perdida</td></tr>
+      <tr><td>Ritmo mié 5 ago</td><td class="n">10:30–11:30</td><td class="n">8:23</td><td class="hi">+2:07 rápido</td></tr>
+      <tr><td>Ritmo vie 7 ago</td><td class="n">10:30–11:30</td><td class="n">8:00</td><td class="hi">+2:30 rápido</td></tr>
+      <tr><td>Molestias</td><td class="n">—</td><td class="n">ninguna</td><td class="lo">limpio</td></tr>
+    </tbody>
+  </table>
+
+  <div class="rule hard" style="margin-top:18px">
+    <div class="rt">Aritmética del bloque 1</div>
+    <p>El bloque 1 tiene <strong>12 sesiones de carrera</strong> entre las semanas 1 y 4. Llevas 2. El umbral de adherencia es 85 %, o sea <strong>11 de 12</strong>. Ya gastaste tu único margen. <strong>Necesitas 9 de las 9 restantes — asistencia perfecta hasta el 29 de agosto.</strong> No es castigo, es aritmética.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">04</span><h2>Composición corporal · línea base</h2></div>
+  <div class="sec-note">InBody 120 · 17 jun 2026 · Daneira Gómez. Se remide al cierre del bloque 1.</div>
+
+  <table>
+    <thead><tr><th>Indicador</th><th>Valor</th><th>Referencia</th><th>Lectura para correr</th></tr></thead>
+    <tbody>
+      <tr><td>Peso</td><td class="n">111.1 kg</td><td class="n">60.6–82.0</td><td>112 kg hoy · estable en 8 semanas</td></tr>
+      <tr><td>Estatura</td><td class="n">180 cm</td><td class="n">—</td><td>tú dices 182 · a verificar</td></tr>
+      <tr><td>Masa músculo esquelético</td><td class="n">48.6 kg</td><td class="n">—</td><td class="lo">alta · no eres sedentario</td></tr>
+      <tr><td>Masa grasa</td><td class="n">27.6 kg</td><td class="n">8.6–17.1</td><td class="hi">+10.5 kg sobre el rango</td></tr>
+      <tr><td>% grasa corporal</td><td class="n">24.9 %</td><td class="n">&lt; 20 %</td><td class="hi">alto</td></tr>
+      <tr><td>IMC</td><td class="n">34.3</td><td class="n">18.5–25</td><td>engañoso con 48.6 kg de músculo</td></tr>
+      <tr><td>Grasa visceral</td><td class="n">nivel 12</td><td class="n">&lt; 10</td><td class="hi">elevado</td></tr>
+      <tr><td>Cintura / cadera</td><td class="n">0.97</td><td class="n">0.80–0.90</td><td class="hi">elevado</td></tr>
+      <tr><td>Brazos (masa magra)</td><td class="n">135–143 %</td><td class="n">100 %</td><td class="hi">peso muerto en carrera</td></tr>
+      <tr><td>Tronco</td><td class="n">120.7 %</td><td class="n">100 %</td><td class="hi">peso muerto en carrera</td></tr>
+      <tr><td>Piernas</td><td class="n">103.5 / 106.1 %</td><td class="n">100 %</td><td class="hi">el eslabón relativo débil</td></tr>
+      <tr><td>FC en reposo</td><td class="n">74 ppm</td><td class="n">—</td><td>alarma de sobrecarga a partir de 80</td></tr>
+      <tr><td>FC máx observada</td><td class="n">196 ppm</td><td class="n">teórica 186</td><td>máx real ≥196 · dentro de lo normal</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">05</span><h2>Señales a vigilar</h2></div>
+  <div class="sec-note">Reporta cualquiera de estas antes de la siguiente sesión.</div>
+
+  <table>
+    <thead><tr><th>Señal</th><th>Acción</th></tr></thead>
+    <tbody>
+      <tr><td>Rigidez en Aquiles o sóleo en los primeros 200 m que <strong>cede al calentar</strong></td><td>Corre. Registra con nota.</td></tr>
+      <tr><td>Molestia que <strong>persiste</strong> después de calentar</td><td>Corta la sesión a la mitad.</td></tr>
+      <tr><td>Dolor que <strong>altera tu forma de correr</strong></td><td>Paras. Cero carrera 48 h. Reportas.</td></tr>
+      <tr><td class="hi">Dolor puntual en hueso — tibia, metatarso, cadera</td><td class="hi">Paras. Médico. Es fractura por estrés hasta que se demuestre lo contrario.</td></tr>
+      <tr><td class="hi">Dolor en reposo o nocturno · hinchazón · no poder apoyar</td><td class="hi">Paras. Médico ese día.</td></tr>
+      <tr><td>FC en reposo ≥ 80 ppm tres mañanas seguidas</td><td>Reportas antes de correr.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="foot">
+  VDOT vigente 20 · sin test<br>
+  Proyección de meta vigente 2:10–2:22 · se recalibra con el 5K del sáb 29 ago<br>
+  Próximo test · semana 4 · sáb 29 ago · 5K continuo<br>
+  Punto de decisión de meta · semana 12 · sáb 24 oct · 10K<br>
+  Emitido 9 ago 2026
+</div>
+
+</div>
+</body>
+</html>
