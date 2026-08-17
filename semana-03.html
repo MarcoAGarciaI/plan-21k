@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 3 · Bloque 1 · 21K CDMX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A1620; --panel:#102431; --panel-2:#16303F; --line:#23414F;
+  --ink:#DCE8EC; --ink-dim:#7E9AA6; --ink-faint:#4E6C79;
+  --easy:#3E9B8F; --quality:#E8A33D; --long:#4B8FD4; --gym:#9B7BC4;
+  --rest:#3A5361; --alert:#D9553B;
+  --display:'Space Grotesk',system-ui,sans-serif;
+  --body:'IBM Plex Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:820px;margin:0 auto;padding:0 18px 70px}
+
+.masthead{padding:36px 0 24px;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:12px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(30px,8vw,48px);line-height:1.02;letter-spacing:-.02em}
+h1 em{font-style:normal;color:var(--ink-faint)}
+.subline{color:var(--ink-dim);margin-top:12px;font-size:14.5px}
+
+.gauges{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:1px;background:var(--line);margin-top:24px;border:1px solid var(--line)}
+.gauge{background:var(--panel);padding:14px 16px}
+.gauge .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.gauge .v{font-family:var(--mono);font-size:22px;font-weight:600;margin-top:5px;letter-spacing:-.02em}
+.gauge .n{font-size:11.5px;color:var(--ink-dim);margin-top:2px}
+.gauge.hot .v{color:var(--quality)}
+.gauge.alert .v{color:var(--alert)}
+.gauge.good .v{color:var(--easy)}
+
+section{padding-top:42px}
+.sec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.sec-num{font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);letter-spacing:.14em}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(19px,4.5vw,25px);letter-spacing:-.01em}
+.sec-note{color:var(--ink-dim);font-size:14px;margin-bottom:18px}
+
+.rule{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--quality);padding:16px 18px;margin-bottom:14px}
+.rule.hard{border-left-color:var(--alert)}
+.rule.ok{border-left-color:var(--easy)}
+.rule .rt{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--quality);margin-bottom:6px}
+.rule.hard .rt{color:var(--alert)}
+.rule.ok .rt{color:var(--easy)}
+.rule p{font-size:14.5px}
+.rule p + p{margin-top:9px}
+.rule strong{font-weight:600}
+
+.days{border:1px solid var(--line);background:var(--panel)}
+.day{display:grid;grid-template-columns:96px 1fr;gap:14px;padding:15px 16px;border-bottom:1px solid var(--line)}
+.day:last-child{border-bottom:none}
+.day.hero{background:var(--panel-2)}
+.day-name{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);padding-top:3px}
+.day-name b{display:block;color:var(--ink-dim);font-size:15px;font-weight:600;letter-spacing:0;margin-top:2px}
+.slots{display:flex;flex-direction:column;gap:11px}
+.slot{display:flex;gap:10px;align-items:flex-start}
+.tag{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:3px;white-space:nowrap;flex-shrink:0;margin-top:3px;color:#07131B;font-weight:600}
+.t-easy{background:var(--easy)}.t-long{background:var(--long)}
+.t-gym{background:var(--gym)}.t-rest{background:var(--rest);color:var(--ink-dim)}
+.slot-body strong{font-weight:600;display:block;font-size:15px;margin-bottom:3px}
+.slot-body p{font-size:13.5px;color:var(--ink-dim)}
+.slot-body p + p{margin-top:7px}
+.slot-body .mono{font-family:var(--mono);font-size:12.5px;color:var(--ink);letter-spacing:-.01em}
+
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel);border:1px solid var(--line)}
+.scroll{overflow-x:auto}
+th{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);font-weight:500;white-space:nowrap}
+td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.hi{color:var(--alert);font-weight:600}
+td.lo{color:var(--easy);font-weight:600}
+td.mid{color:var(--quality);font-weight:600}
+tr.tot td{background:var(--panel-2);font-weight:600}
+
+.bars{border:1px solid var(--line);background:var(--panel);padding:16px 18px}
+.bar{display:grid;grid-template-columns:52px 1fr 132px;gap:11px;align-items:center;padding:7px 0}
+.bar .lb{font-family:var(--mono);font-size:11px;color:var(--ink-faint)}
+.bar .tr{background:var(--panel-2);height:16px;position:relative;border:1px solid var(--line)}
+.bar .fl{position:absolute;left:0;top:0;bottom:0;background:var(--long)}
+.bar .fl.h{background:var(--alert)}
+.bar .vv{font-family:var(--mono);font-size:11.5px;color:var(--ink-dim);text-align:right}
+
+.foot{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-faint);font-family:var(--mono);line-height:1.7}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="eyebrow">Bloque 1 · Adaptación estructural · 21K CDMX 13 dic 2026</div>
+  <h1>Semana 3 <em>/ 19</em></h1>
+  <div class="subline">Lunes 17 — domingo 23 de agosto de 2026 · 17 semanas para la salida</div>
+
+  <div class="gauges">
+    <div class="gauge"><div class="k">Volumen</div><div class="v">13 km</div><div class="n">recortado de 15</div></div>
+    <div class="gauge"><div class="k">Tirada larga</div><div class="v">6 km</div><div class="n">sin recorte</div></div>
+    <div class="gauge alert"><div class="k">Techo de FC</div><div class="v">155</div><div class="n">ppm · manda sobre el ritmo</div></div>
+    <div class="gauge hot"><div class="k">Ritmo esperado</div><div class="v">9:05</div><div class="n">min/km · rango 9:05–10:00</div></div>
+    <div class="gauge good"><div class="k">Adherencia S2</div><div class="v">100 %</div><div class="n">3 de 3 · 102 % del volumen</div></div>
+    <div class="gauge good"><div class="k">VDOT medido</div><div class="v">22.6</div><div class="n">era 20 supuesto</div></div>
+  </div>
+</header>
+
+<section>
+  <div class="sec-head"><span class="sec-num">01</span><h2>Lo que hiciste bien</h2></div>
+  <div class="sec-note">Se nombra primero porque es real y porque es específico.</div>
+
+  <div class="rule ok">
+    <div class="rt">Adherencia · 3 de 3</div>
+    <p>Tres sesiones prescritas, tres ejecutadas. <strong>11.18 km contra 11.00 planeados: 102 %.</strong> Después de una semana 1 al 61 % y con la tirada larga perdida, esto es la corrección que hacía falta. La tirada larga de 5 km entró completa.</p>
+  </div>
+
+  <div class="rule ok">
+    <div class="rt">Progreso medible · mismo segmento, mismo terreno</div>
+    <p>El kilómetro «Glorieta caseta macro — Long Island» lo corriste el <strong>5 de agosto en 8:08 con FC 167</strong>. El <strong>14 de agosto lo corriste en 6:14 con FC 163.</strong> Casi dos minutos por kilómetro más rápido con cuatro pulsaciones menos, en nueve días. Eso no es entusiasmo, es readquisición aeróbica real de alguien que ya corrió antes.</p>
+    <p>Traducido: tu 5K medido el domingo fue <strong>38:37</strong>. El plan arrancó suponiendo 45:00. Tu VDOT real es <strong>22.6</strong>, no 20. Ese número corrige hacia arriba todo lo que sigue.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">02</span><h2>Lo que salió mal</h2></div>
+  <div class="sec-note">Cumpliste el calendario. Fallaste la intensidad, y ese es el error que lesiona.</div>
+
+  <div class="rule hard">
+    <div class="rt">Regla rota · ritmo</div>
+    <p>La regla dura de la semana 2 decía: <strong>ningún tramo por debajo de 10:20 min/km.</strong> Los cuatro bloques del viernes 14 fueron a <strong>6:01 · 6:08 · 6:14 · 7:08</strong>. Rompiste el techo por más de cuatro minutos por kilómetro en tres de cuatro bloques.</p>
+    <p>Aquí me corrijo yo también: <strong>10:30–11:30 estaba mal calibrado</strong>, salió de un VDOT supuesto de 20 que resultó falso. Con VDOT 22.6 tu ritmo fácil real por Daniels es <strong>9:05–10:00 min/km</strong>. Aun así corriste a 6:05. No estabas 1:30 rápido, estabas 3:00 rápido.</p>
+  </div>
+
+  <div class="rule hard">
+    <div class="rt">Consecuencia medida · el viernes reventó</div>
+    <p>La FC subió bloque a bloque: <strong>138 → 177 → 183 → 180</strong>, con pico de 188. Eso es 96 % de tu máxima conocida (196) en un rodaje etiquetado «fácil».</p>
+    <p>Las caminatas de 1 minuto <strong>no recuperaron nada</strong>: 173 → 180 → 181. Cuando la pausa no baja el pulso, ya no es método 4:1, es intervalo de umbral con descanso insuficiente.</p>
+    <p>El cuarto bloque cayó de 6:14 a <strong>7:08 min/km</strong> con la FC clavada en 180 y la cadencia de 78 a 73. Eso es fallo mecánico: los músculos dejaron de absorber y la carga se fue al tendón. A 111 kg, ahí es donde se rompe el Aquiles.</p>
+  </div>
+
+  <div class="rule hard">
+    <div class="rt">Tirada larga · desacople del 17 %</div>
+    <p>Parciales del domingo: <strong>7:01 · 7:19 · 7:26 · 8:07 · 8:41.</strong> Km 5 fue 100 segundos más lento que el km 1 y llevas 100 segundos de reloj detenido: te paraste.</p>
+    <p>El desacople entre ritmo y pulso fue del <strong>17 %</strong>. Arriba de 5 % significa que la tirada iba por encima del umbral aeróbico. Diecisiete por ciento significa que corriste una carrera de 5K, no una tirada larga. FC promedio 177, máxima 192, o sea 98 % de tu tope.</p>
+    <p>La cadencia se derrumbó de <strong>155 a 140 pasos por minuto</strong> en los últimos 2 km. Es el mismo patrón del viernes, más pronunciado.</p>
+  </div>
+
+  <div class="rule hard">
+    <div class="rt">Domingo · el día que no era</div>
+    <p>La tirada estaba en <strong>sábado 15</strong>. La corriste el <strong>domingo 16 a las 21:22</strong>. Dos costos, y ninguno es menor.</p>
+    <p>Uno: te quedaste sin día de descanso. Entraste al lunes 12 horas después de un esfuerzo al 98 % de tu FC máxima, con pierna pesada programada. Por eso el lunes 17 de esta semana está en blanco.</p>
+    <p>Dos: el domingo es de Fernanda. Ese día no es negociable en este plan y no lo escribí por cortesía. <strong>Si el plan solo cabe robándole el domingo, el plan está mal dosificado y lo arreglo yo, no tú.</strong> Necesito saber qué pasó el sábado.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">03</span><h2>Los números de la semana 2</h2></div>
+  <div class="sec-note">Fuente: Strava. Contrastado contra lo prescrito el 9 de agosto.</div>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Sesión</th><th>Prescrito</th><th>Ejecutado</th><th>Ritmo</th><th>FC prom</th><th>FC máx</th></tr></thead>
+    <tbody>
+      <tr><td>Mar 11 · fácil</td><td class="n">3.0 km · 10:30–11:30</td><td class="n">3.02 km</td><td class="n hi">7:28</td><td class="n">138 *</td><td class="n">162 *</td></tr>
+      <tr><td>Vie 14 · fácil</td><td class="n">3.0 km · 10:30–11:30</td><td class="n">3.16 km</td><td class="n hi">7:11</td><td class="n hi">166</td><td class="n hi">188</td></tr>
+      <tr><td>Dom 16 · larga <span style="color:var(--alert)">(era sáb 15)</span></td><td class="n">5.0 km · 11:00–11:45</td><td class="n">5.00 km</td><td class="n hi">7:43</td><td class="n hi">177</td><td class="n hi">192</td></tr>
+      <tr class="tot"><td>Total</td><td class="n">11.00 km</td><td class="n lo">11.18 km</td><td class="n">1:23:55</td><td class="n">—</td><td class="n">—</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p style="font-size:12.5px;color:var(--ink-faint);font-family:var(--mono);margin-top:9px">* Dato de FC del martes 11 marcado como no confiable. Ver sección 04.</p>
+
+  <div style="margin-top:22px"></div>
+  <div class="sec-note"><strong style="color:var(--ink)">Viernes 14 · los cuatro bloques de 4 minutos</strong></div>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Bloque</th><th>Distancia</th><th>Ritmo</th><th>FC prom</th><th>FC de la caminata</th><th>Cadencia</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td class="n">665 m</td><td class="n hi">6:01</td><td class="n">138</td><td class="n">173</td><td class="n">78.5</td></tr>
+      <tr><td>2</td><td class="n">652 m</td><td class="n hi">6:08</td><td class="n hi">177</td><td class="n hi">180</td><td class="n">77.8</td></tr>
+      <tr><td>3</td><td class="n">642 m</td><td class="n hi">6:14</td><td class="n hi">183</td><td class="n hi">181</td><td class="n">77.8</td></tr>
+      <tr><td>4</td><td class="n">561 m</td><td class="n hi">7:08</td><td class="n hi">180</td><td class="n">172</td><td class="n hi">73.1</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div style="margin-top:22px"></div>
+  <div class="sec-note"><strong style="color:var(--ink)">Domingo 16 · parciales de la tirada larga</strong></div>
+  <div class="bars">
+    <div class="bar"><span class="lb">km 1</span><span class="tr"><span class="fl" style="width:80.8%"></span></span><span class="vv">7:01 · FC 160 · cad 77.5</span></div>
+    <div class="bar"><span class="lb">km 2</span><span class="tr"><span class="fl" style="width:84.3%"></span></span><span class="vv">7:19 · FC 179 · cad 76.2</span></div>
+    <div class="bar"><span class="lb">km 3</span><span class="tr"><span class="fl" style="width:85.6%"></span></span><span class="vv">7:26 · FC 184 · cad 76.3</span></div>
+    <div class="bar"><span class="lb">km 4</span><span class="tr"><span class="fl h" style="width:93.5%"></span></span><span class="vv">8:07 · FC 180 · cad 70.1</span></div>
+    <div class="bar"><span class="lb">km 5</span><span class="tr"><span class="fl h" style="width:100%"></span></span><span class="vv">8:41 · FC 183 · cad 72.5</span></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">04</span><h2>Alerta de medición</h2></div>
+  <div class="sec-note">Esto importa más que cualquier sesión de esta semana.</div>
+
+  <div class="rule hard">
+    <div class="rt">El reloj cambió algo entre el martes y el viernes</div>
+    <p>Mismo segmento, «Av. Urano — Entrada Long Island», 547 metros:</p>
+    <p class="mono" style="color:var(--ink)">Martes 11 · 7:29 min/km · FC 139<br>Domingo 16 · 7:46 min/km · FC 184</p>
+    <p>Prácticamente el mismo ritmo con <strong>45 pulsaciones de diferencia</strong>. Y tu 1K más rápido fue casi idéntico los dos días (6:23 el martes, 6:18 el viernes) con 28 ppm de separación en el promedio. Eso no es fisiología, es instrumentación.</p>
+    <p>El indicio duro: <strong>las sesiones del viernes y domingo traen dato de potencia, la del martes no.</strong> Cambiaste de dispositivo o de configuración a media semana. La bitácora ya registraba que estabas corrigiendo el método de medición.</p>
+    <p>Por qué no puede esperar: <strong>el test de FCU es en tres semanas</strong> y de ahí salen las cinco zonas que gobiernan los 14 bloques restantes. Un sensor que subestima 28 ppm corrompe el plan completo de aquí a diciembre. Dime qué cambió entre el martes 11 y el viernes 14, y llega al test con una sola configuración, la misma, verificada.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">05</span><h2>Las tres reglas de la semana</h2></div>
+  <div class="sec-note">La primera sustituye a la regla de ritmo. El ritmo dejó de mandar.</div>
+
+  <div class="rule hard">
+    <div class="rt">Regla dura · techo de pulso 155</div>
+    <p>Ya no persigues un número de ritmo. Persigues un número de pulso. <strong>Durante los tramos corridos, la FC no pasa de 155.</strong> Si toca 158, caminas hasta que baje de 145 y retomas, aunque te coma el bloque de 4 minutos.</p>
+    <p>155 es el 79 % de tu máxima observada de 196. Es el techo del rango aeróbico. Todo lo que corriste en la semana 2 estuvo entre 166 y 192.</p>
+    <p>Cambio la regla porque la prueba del habla no está funcionando: nadie sostiene una frase completa a 188 ppm y aun así completaste las sesiones. El reloj no miente sobre esto y tu percepción sí.</p>
+  </div>
+
+  <div class="rule">
+    <div class="rt">Ritmo esperado · consecuencia, no objetivo</div>
+    <p><strong>9:05–10:00 min/km.</strong> Es tu ritmo fácil real por Daniels con VDOT 22.6. No lo persigas: es lo que va a salir solo si respetas el techo de 155. Si el pulso te obliga a 10:30, corres a 10:30 y está bien.</p>
+  </div>
+
+  <div class="rule ok">
+    <div class="rt">Control · cadencia</div>
+    <p>Si la cadencia cae más de 5 pasos por minuto respecto al arranque, <strong>caminas 90 segundos</strong>. La cadencia se desploma antes de que aparezca el dolor. Es tu aviso más temprano y esta semana lo tuviste dos veces.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">06</span><h2>La semana, día por día</h2></div>
+  <div class="sec-note">13 km de carrera · 3 sesiones de gimnasio · lunes y domingo en blanco.</div>
+
+  <div class="days">
+
+    <div class="day">
+      <div class="day-name">Lunes<b>17 ago</b></div>
+      <div class="slots">
+        <div class="slot"><span class="tag t-rest">Descanso total</span><div class="slot-body">
+          <strong>Sin correr, sin gimnasio</strong>
+          <p>Cancelo la pierna del lunes. Corriste 5 km al 98 % de tu FC máxima anoche a las 21:22 y no tuviste día de recuperación. Cargar sentadilla pesada 12 horas después de eso es cómo se acumula la lesión que todavía no tienes.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-name">Martes<b>18 ago</b></div>
+      <div class="slots">
+        <div class="slot"><span class="tag t-easy">Fácil</span><div class="slot-body">
+          <strong>3.5 km · 4:1</strong>
+          <p class="mono">FC ≤ 155 · ~34 min · calle en llano · mañana</p>
+          <p>Primera sesión gobernada por pulso. Vas a sentir que caminas más de lo que corres las primeras dos semanas. Es exactamente el punto.</p>
+        </div></div>
+        <div class="slot"><span class="tag t-gym">Gym</span><div class="slot-body">
+          <strong>Empuje · volumen recortado</strong>
+          <p>Una serie menos por ejercicio, igual que la semana pasada.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-name">Miércoles<b>19 ago</b></div>
+      <div class="slots">
+        <div class="slot"><span class="tag t-rest">Sin correr</span></div>
+        <div class="slot"><span class="tag t-gym">Gym</span><div class="slot-body">
+          <strong>Pierna fuerza + core</strong>
+          <p class="mono">Sentadilla o prensa 4×5 · RDL 3×6 · Elevación de talón de pie 3×12 · Core 10 min</p>
+          <p>Movida del lunes por el corrimiento de la tirada larga. Carga alta, sin fallo. Tres días de separación de la larga del sábado: suficiente.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-name">Jueves<b>20 ago</b></div>
+      <div class="slots">
+        <div class="slot"><span class="tag t-rest">Descanso</span><div class="slot-body">
+          <strong>Sin carrera, sin gimnasio</strong>
+          <p>La calidad entra hasta la semana 9. Hoy no hay nada que ganar.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-name">Viernes<b>21 ago</b></div>
+      <div class="slots">
+        <div class="slot"><span class="tag t-easy">Fácil</span><div class="slot-body">
+          <strong>3.5 km · 4:1</strong>
+          <p class="mono">FC ≤ 155 · ~34 min · mañana</p>
+        </div></div>
+        <div class="slot"><span class="tag t-gym">Gym</span><div class="slot-body">
+          <strong>Tracción + accesorios + sóleo + core</strong>
+          <p class="mono">Elevación de talón sentado (rodilla flexionada) 3×15 · Core 10 min</p>
+          <p>Segunda dosis de pantorrilla de la semana. Con rodilla flexionada el trabajo va al sóleo, que es el que absorbe la carga que tus bloques de 6:05 le echaron encima.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="day hero">
+      <div class="day-name">Sábado<b>22 ago</b></div>
+      <div class="slots">
+        <div class="slot"><span class="tag t-long">Tirada larga</span><div class="slot-body">
+          <strong>6 km · 4:1 · antes de las 7:30 AM</strong>
+          <p class="mono">FC ≤ 155 · ~62 min · afuera, calle en llano</p>
+          <p><strong>Sábado por la mañana, no domingo por la noche.</strong> La hora está prescrita igual que la distancia: temprano recuperas el domingo y evitas la humedad acumulada de la noche, que fue parte de por qué el pulso no bajó nunca el 16.</p>
+          <p>Nada de caminadora ni aire acondicionado. El calor y la humedad de Cancún expanden el volumen plasmático y eso transfiere a tolerancia de altitud en diciembre.</p>
+          <p><strong>Salida de emergencia:</strong> si el pulso no baja de 155 ni caminando, cierras en 5 km. Si aparece rigidez que no cede después del km 4, caminas el último kilómetro. Terminar 5 km enteros vale más que arrastrar 6.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-name">Domingo<b>23 ago</b></div>
+      <div class="slots">
+        <div class="slot"><span class="tag t-rest">Descanso total</span><div class="slot-body">
+          <strong>Innegociable · segunda vez que lo escribo</strong>
+          <p>Cero carrera, cero gimnasio. Este día es de Fernanda, no del plan. Si el sábado se cae, la sesión se pierde. No se recorre al domingo.</p>
+        </div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">07</span><h2>Aritmética del bloque 1</h2></div>
+  <div class="sec-note">Doce sesiones de carrera entre las semanas 1 y 4. Llevas 5.</div>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Semana</th><th>Sesiones</th><th>Volumen plan</th><th>Volumen real</th><th>Estado</th></tr></thead>
+    <tbody>
+      <tr><td>S1 · 3–9 ago</td><td class="n">2 de 3</td><td class="n">10.0 km</td><td class="n">6.1 km</td><td class="hi">61 %</td></tr>
+      <tr><td>S2 · 10–16 ago</td><td class="n lo">3 de 3</td><td class="n">11.0 km</td><td class="n">11.18 km</td><td class="lo">102 %</td></tr>
+      <tr><td>S3 · 17–23 ago</td><td class="n">— de 3</td><td class="n">13.0 km</td><td class="n">—</td><td class="n">en curso</td></tr>
+      <tr><td>S4 · 24–30 ago</td><td class="n">— de 3</td><td class="n">11.0 km</td><td class="n">—</td><td class="n">descarga + test 5K</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="rule hard" style="margin-top:18px">
+    <div class="rt">Sin margen</div>
+    <p>El umbral de adherencia del bloque es 85 %, o sea <strong>11 de 12 sesiones</strong>. Gastaste tu única falta en la semana 1. Llevas 5 cumplidas y quedan 6. <strong>Necesitas las 6 — asistencia perfecta hasta el 30 de agosto.</strong> No es castigo, es aritmética.</p>
+  </div>
+
+  <div class="rule">
+    <div class="rt">Ajuste de volumen · lo hago yo y te digo por qué</div>
+    <p>El plan maestro dice 15 km para la semana 3. Lo bajo a <strong>13 km</strong>. Ejecutaste 11.18; saltar a 15 es +34 % en una semana con cadencia colapsando en dos de tres sesiones y 111 kg de impacto por zancada. Trece son +16 %, dentro de lo defendible.</p>
+    <p>La <strong>tirada larga queda íntegra en 6 km</strong>. El recorte sale de los rodajes, nunca de la larga: es la sesión que construye el bloque.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">08</span><h2>Dónde queda la meta</h2></div>
+  <div class="sec-note">La proyección no se mueve. Los números sí se ponen sobre el papel.</div>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Concepto</th><th>Valor</th><th>Lectura</th></tr></thead>
+    <tbody>
+      <tr><td>VDOT al arranque · supuesto</td><td class="n">20.0</td><td>5K en 42:40 estimado</td></tr>
+      <tr><td>VDOT medido · 16 ago</td><td class="n lo">22.6</td><td class="lo">5K real de 38:37 · +13 %</td></tr>
+      <tr><td>Medio maratón hoy · nivel del mar</td><td class="n">≈ 2:56</td><td>lo que rendiría tu fisiología actual</td></tr>
+      <tr><td>VDOT necesario para sub-2:00 en CDMX</td><td class="n hi">39.5</td><td class="hi">+17 puntos en 17 semanas</td></tr>
+      <tr><td>VDOT alcanzable en 17 semanas</td><td class="n mid">31–35</td><td class="mid">progresión realista de base</td></tr>
+      <tr><td>Proyección vigente · 13 dic</td><td class="n">2:10–2:22</td><td>sin cambio · decide el 10K del 24 oct</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="rule">
+    <div class="rt">Lectura honesta</div>
+    <p>Dos semanas de datos movieron tu medio maratón teórico de 3:15 a 2:56. Diecinueve minutos. Ese ritmo de mejora es normal en alguien que está readquiriendo, y se aplana pronto.</p>
+    <p>Sub-2:00 en altitud pide VDOT 39.5. Estás en 22.6. <strong>No renegocio la meta aquí ni la muevo</strong>: el 10K del 24 de octubre decide, con los umbrales fijados desde julio. Solo dejo el número escrito para que la decisión de la semana 12 no te tome por sorpresa.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">09</span><h2>Lo que necesito de ti</h2></div>
+  <div class="sec-note">Cinco cosas. Las tres primeras antes del martes.</div>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Pendiente</th><th>Por qué</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Qué cambió en el reloj entre el mar 11 y el vie 14</strong></td><td class="hi">Sin esto, el test de FCU del 5 de septiembre nace corrupto y arrastra 14 bloques</td></tr>
+      <tr><td><strong>Por qué la larga se movió a domingo 21:22</strong></td><td>Si es un choque estructural con tu semana laboral, redosifico. Si fue puntual, seguimos igual</td></tr>
+      <tr><td><strong>Cuántas sesiones de gimnasio hiciste en la S2</strong></td><td>La adherencia del bloque no está completa sin esto</td></tr>
+      <tr><td>FC en reposo · promedio de 3 mañanas al despertar</td><td>Marcador temprano de sobrecarga. Línea base 74; alarma a partir de 80</td></tr>
+      <tr><td>Estatura verificada · 180 o 182</td><td>Entra en el InBody de control del 29 de agosto</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">10</span><h2>Señales a vigilar</h2></div>
+  <div class="sec-note">Reporta cualquiera antes de la siguiente sesión.</div>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Señal</th><th>Acción</th></tr></thead>
+    <tbody>
+      <tr><td>Rigidez en Aquiles o sóleo en los primeros 200 m que <strong>cede al calentar</strong></td><td>Corre. Registra con nota.</td></tr>
+      <tr><td>Molestia que <strong>persiste</strong> después de calentar</td><td>Corta la sesión a la mitad. Sin calidad.</td></tr>
+      <tr><td>Dolor que <strong>altera tu forma de correr</strong></td><td>Paras. Cero carrera 48 h. Reportas.</td></tr>
+      <tr><td class="hi">Dolor puntual en hueso — tibia, metatarso, cadera</td><td class="hi">Paras. Médico. Es fractura por estrés hasta que se demuestre lo contrario.</td></tr>
+      <tr><td class="hi">Dolor en reposo o nocturno · hinchazón · no poder apoyar</td><td class="hi">Paras. Médico ese día.</td></tr>
+      <tr><td>FC en reposo ≥ 80 ppm tres mañanas seguidas</td><td>Reportas antes de correr.</td></tr>
+      <tr><td>Cadencia −5 pasos/min respecto al arranque de la sesión</td><td>Caminas 90 segundos. No lo negocies.</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<div class="foot">
+  VDOT vigente 22.6 · medido del 5K del 16 ago, no de test formal<br>
+  Proyección de meta vigente 2:10–2:22 · sin cambio<br>
+  Próximo test · semana 4 · sáb 29 ago · 5K continuo<br>
+  Test de FCU · semana 5 · ~sáb 5 sep · define las zonas del resto del plan<br>
+  Punto de decisión de meta · semana 12 · sáb 24 oct · 10K<br>
+  Emitido 16 ago 2026
+</div>
+
+</div>
+</body>
+</html>
