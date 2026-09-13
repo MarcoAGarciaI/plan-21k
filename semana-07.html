@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Semana 7 · Bloque 2 · 21K CDMX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0A1620; --panel:#102431; --panel-2:#16303F; --line:#23414F;
+  --ink:#DCE8EC; --ink-dim:#7E9AA6; --ink-faint:#4E6C79;
+  --easy:#3E9B8F; --quality:#E8A33D; --long:#4B8FD4; --gym:#9B7BC4;
+  --rest:#3A5361; --alert:#D9553B;
+  --display:'Space Grotesk',system-ui,sans-serif;
+  --body:'IBM Plex Sans',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:820px;margin:0 auto;padding:0 18px 70px}
+
+.masthead{padding:36px 0 24px;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:12px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(30px,8vw,48px);line-height:1.02;letter-spacing:-.02em}
+h1 em{font-style:normal;color:var(--ink-faint)}
+.subline{color:var(--ink-dim);margin-top:12px;font-size:14.5px}
+
+.gauges{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:1px;background:var(--line);margin-top:24px;border:1px solid var(--line)}
+.gauge{background:var(--panel);padding:14px 16px}
+.gauge .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.gauge .v{font-family:var(--mono);font-size:22px;font-weight:600;margin-top:5px;letter-spacing:-.02em}
+.gauge .n{font-size:11.5px;color:var(--ink-dim);margin-top:2px}
+.gauge.hot .v{color:var(--quality)}
+.gauge.alert .v{color:var(--alert)}
+.gauge.good .v{color:var(--easy)}
+
+section{padding-top:42px}
+.sec-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.sec-num{font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);letter-spacing:.14em}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(19px,4.5vw,25px);letter-spacing:-.01em}
+h3{font-family:var(--display);font-weight:700;font-size:15.5px;margin-bottom:8px}
+.sec-note{color:var(--ink-dim);font-size:14px;margin-bottom:18px}
+
+.rule{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--quality);padding:16px 18px;margin-bottom:14px}
+.rule.hard{border-left-color:var(--alert)}
+.rule.ok{border-left-color:var(--easy)}
+.rule .rt{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--quality);margin-bottom:6px}
+.rule.hard .rt{color:var(--alert)}
+.rule.ok .rt{color:var(--easy)}
+.rule p{font-size:14.5px}
+.rule p + p{margin-top:9px}
+.rule strong{font-weight:600}
+.rule code{font-family:var(--mono);font-size:12.5px;background:var(--panel-2);padding:1px 5px;border-radius:2px}
+
+.days{border:1px solid var(--line);background:var(--panel)}
+.day{display:grid;grid-template-columns:96px 1fr;gap:14px;padding:15px 16px;border-bottom:1px solid var(--line)}
+.day:last-child{border-bottom:none}
+.day.hero{background:var(--panel-2)}
+.day-name{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);padding-top:3px}
+.day-name b{display:block;color:var(--ink-dim);font-size:15px;font-weight:600;letter-spacing:0;margin-top:2px}
+.slots{display:flex;flex-direction:column;gap:11px}
+.slot{display:flex;gap:10px;align-items:flex-start}
+.tag{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:3px;white-space:nowrap;flex-shrink:0;margin-top:3px;color:#07131B;font-weight:600}
+.t-easy{background:var(--easy)}.t-long{background:var(--long)}
+.t-gym{background:var(--gym)}.t-rest{background:var(--rest);color:var(--ink-dim)}
+.t-test{background:var(--quality)}
+.slot-body strong{font-weight:600;display:block;font-size:15px;margin-bottom:3px}
+.slot-body p{font-size:13.5px;color:var(--ink-dim)}
+.slot-body p + p{margin-top:7px}
+.slot-body .mono{font-family:var(--mono);font-size:12.5px;color:var(--ink);letter-spacing:-.01em}
+
+table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--panel);border:1px solid var(--line)}
+.scroll{overflow-x:auto}
+th{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);text-align:left;padding:11px 12px;border-bottom:1px solid var(--line);font-weight:500;white-space:nowrap}
+td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.n{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+td.hi{color:var(--alert);font-weight:600}
+td.lo{color:var(--easy);font-weight:600}
+td.mid{color:var(--quality);font-weight:600}
+tr.tot td{background:var(--panel-2);font-weight:600}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}.day{grid-template-columns:1fr;gap:8px}}
+.card{background:var(--panel);border:1px solid var(--line);padding:16px 18px}
+.card ul{margin:0;padding-left:17px}
+.card li{font-size:13.5px;color:var(--ink-dim);margin-bottom:7px}
+.card li strong{color:var(--ink);font-weight:600}
+.card p{font-size:13.5px;color:var(--ink-dim)}
+.card p + p{margin-top:8px}
+.card code{font-family:var(--mono);font-size:12px;background:var(--panel-2);padding:1px 5px;border-radius:2px;color:var(--ink)}
+
+.foot{margin-top:44px;padding-top:20px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink-faint);font-family:var(--mono);line-height:1.7}
+
+.big{border:1px solid var(--line);background:var(--panel-2);padding:22px 20px;text-align:center;margin-bottom:14px}
+.big .bk{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint)}
+.big .bv{font-family:var(--mono);font-size:clamp(38px,11vw,58px);font-weight:600;letter-spacing:-.03em;color:var(--quality);line-height:1.1;margin:6px 0 4px}
+.big .bn{font-size:13px;color:var(--ink-dim)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <div class="eyebrow">Bloque 2 · Base aeróbica · 21K CDMX 13 dic 2026</div>
+  <h1>Semana 7 <em>/ 19</em></h1>
+  <div class="subline">Lunes 14 — domingo 20 de septiembre de 2026 · 12 semanas exactas para la salida</div>
+
+  <div class="gauges">
+    <div class="gauge"><div class="k">Volumen</div><div class="v">18 km</div><div class="n">+16 % sobre la S6 real</div></div>
+    <div class="gauge"><div class="k">Tirada larga</div><div class="v">8 km</div><div class="n">5:1 · sábado 6:45 AM</div></div>
+    <div class="gauge good"><div class="k">Cadencia</div><div class="v">156</div><div class="n">resuelto · se sostiene solo</div></div>
+    <div class="gauge hot"><div class="k">Metros / bloque</div><div class="v">555</div><div class="n">en 5:1 · 460 en 4:1</div></div>
+    <div class="gauge alert"><div class="k">Salida sábado</div><div class="v">6:45</div><div class="n">no 8:33 · causa raíz</div></div>
+    <div class="gauge"><div class="k">VDOT</div><div class="v">23.6</div><div class="n">sin cambio hasta el 3 oct</div></div>
+  </div>
+</header>
+
+<section>
+  <div class="sec-head"><span class="sec-num">01</span><h2>La semana 6 resolvió el problema de mecánica</h2></div>
+  <div class="sec-note">Tres semanas peleando con la zancada. Se acabó el jueves 10.</div>
+
+  <div class="rule ok">
+    <div class="rt">El combo que decías que no se podía</div>
+    <p>Jueves 10: cadencia <strong>156.0</strong> a <strong>8:21/km</strong>. El miércoles habían sido 154.7 a 7:25/km. Misma frecuencia de pierna, un minuto por kilómetro más lento. <strong>Cortaste 10 centímetros de zancada</strong>, de 0.87 m a 0.77 m.</p>
+    <p>Y el sábado lo sostuviste 50 minutos: 155.8 en el bloque 1, <strong>154.0 en el bloque 8</strong>. Perdiste 1.8 pasos por minuto bajo fatiga. En la larga del 16 de agosto la caída fue de 155 a 140.</p>
+  </div>
+
+  <div class="rule ok">
+    <div class="rt">Y el sábado el ritmo de sesión cayó dentro del rango E por primera vez</div>
+    <p><strong>9:13/km</strong> sobre tiempo transcurrido. El rango es 9:00 a 9:40. El miércoles fue 7:54 y el jueves 8:45, los dos por debajo del piso. Del sábado sí se puede decir que fue una sesión fácil.</p>
+    <p>La potencia lo confirma sin opinión: 343 W el miércoles, <strong>309 W el jueves</strong> al mismo peso y en terreno plano. Treinta y cuatro vatios menos por dejar de frenar con el pie adelantado.</p>
+  </div>
+
+  <div class="rule">
+    <div class="rt">Y apareció el dato de fuerza</div>
+    <p>Después de cinco semanas y quince sesiones sin un solo número, el lunes 7 quedó registrado completo en Notion: <strong>sentadilla 101 / 124 / 133 kg × 10 / 8 / 6</strong>, peso muerto rumano 40 kg × 10 × 3, levantamiento de cadera 81 kg × 12 × 3.</p>
+    <p>Esos tres movimientos son los que dosifican el trabajo excéntrico que entra en la semana 13. Sin ellos, el bloque 4 se diseñaba a ciegas.</p>
+  </div>
+
+  <div class="scroll" style="margin-top:20px">
+  <table>
+    <thead><tr><th>Sesión</th><th>Distancia</th><th>Ritmo bloques</th><th>Cadencia</th><th>FC prom</th><th>Potencia</th><th>m / bloque</th></tr></thead>
+    <tbody>
+      <tr><td>Mié 9 · 07:27</td><td class="n">5.01 km</td><td class="n hi">7:25</td><td class="n">154.7</td><td class="n hi">173.9</td><td class="n hi">343 W</td><td class="n hi">542</td></tr>
+      <tr><td>Jue 10 · 07:12</td><td class="n">5.01 km</td><td class="n lo">8:21</td><td class="n lo">156.0</td><td class="n">167.1</td><td class="n">309 W</td><td class="n mid">479</td></tr>
+      <tr><td>Sáb 12 · 08:33</td><td class="n mid">5.52 / 6</td><td class="n mid">8:40</td><td class="n lo">155.0</td><td class="n hi">172.0</td><td class="n">309 W</td><td class="n mid">577</td></tr>
+      <tr class="tot"><td>Semana</td><td class="n lo">15.54 / 16 km</td><td class="n">97 %</td><td class="n lo">155.2</td><td class="n">—</td><td class="n">—</td><td class="n mid">+2 % sobre el techo</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p style="font-size:12.5px;color:var(--ink-faint);font-family:var(--mono);margin-top:9px">Techo de metros por bloque: 470 en 4:1, 566 en 5:1. Ritmos sobre tiempo de bloque, no transcurrido.</p>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">02</span><h2>Lo que sí falló: la hora, no la forma</h2></div>
+  <div class="sec-note">La larga se cortó en 5.52 de 6 km. La causa está en el reloj de pared, no en las piernas.</div>
+
+  <div class="rule hard">
+    <div class="rt">Saliste 63 minutos tarde</div>
+    <p>8:33 de arranque, 9:24 de cierre, con el sol de Cancún en alto. La regla del plan es antes de 7:30. Terminaste el bloque 8 con la frecuencia cardiaca en <strong>183 promedio</strong> a 8:53/km, y cortaste.</p>
+    <p>Compara las tres salidas de la semana: miércoles 07:27 con 5.2 % de desacople, jueves 07:12 con 8.7 %, sábado 08:33 con 10.7 %. <strong>El 10.7 % del sábado no mide tu base aeróbica, mide el calor.</strong> El punto de datos limpio del bloque es el 8.7 % del jueves.</p>
+    <p>No te cansaste a los 45 minutos porque la base no dé. Te cansaste porque corriste en el peor momento del día.</p>
+  </div>
+
+  <div class="rule hard">
+    <div class="rt">Y el 2 % que lleva tres sesiones sin corregirse</div>
+    <p>Promedio de 479 metros por bloque el jueves contra un techo de 470. Y 577 el sábado contra 566. Siete de ocho bloques del sábado pasaron el límite, y el bloque 2 fue el más largo de la sesión con <strong>592 metros</strong>.</p>
+    <p>El patrón es específico y siempre el mismo: el bloque 1 sale en el objetivo, y a partir del segundo, cuando ya calentaste y el ritmo se siente cómodo, el paso se estira solo. Nadie percibe 15 metros de diferencia en cuatro minutos. Por eso esta semana cambia el instrumento.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">03</span><h2>Las tres reglas de esta semana</h2></div>
+  <div class="sec-note">Solo tres. La cadencia ya no necesita regla, la resolviste.</div>
+
+  <div class="big">
+    <div class="bk">Regla 1 · el número único</div>
+    <div class="bv">460 · 555</div>
+    <div class="bn">metros por bloque · 4:1 y 5:1</div>
+  </div>
+
+  <div class="rule hard">
+    <div class="rt">Se acaban los rangos</div>
+    <p>Hasta hoy te di ventanas: 450 a 470, 550 a 566. Apuntar al borde y errar 2 % te deja fuera siempre. <strong>Apuntar al centro y errar 2 % te deja dentro.</strong></p>
+    <p class="mono">Rodaje · bloque de 4:00 → <strong>460 m</strong><br>
+    Tirada larga · bloque de 5:00 → <strong>555 m</strong></p>
+    <p>Al terminar cada bloque, mira la distancia de la vuelta en el reloj. Si pasó, el siguiente lo acortas. <strong>No lo corrijas por sensación</strong>, ya está probado que no funciona. Si dos bloques seguidos pasan de 580 en la larga, cortas ahí y reportas los kilómetros reales.</p>
+  </div>
+
+  <div class="rule hard">
+    <div class="rt">Regla 2 · sábado a las 6:45, no más tarde</div>
+    <p>Los 8 km de esta semana son unos <strong>76 minutos de sesión</strong>, contra los 50:49 del sábado pasado. A las 8:33 no se pueden correr. Saliendo a las 6:45 terminas cerca de las 8:00 y esquivas el sol completo.</p>
+    <p>Pon la alarma el viernes por la noche. Es la única variable de esta semana que no se corrige corriendo distinto.</p>
+    <p><strong>Y elige ruta con pocos cruces.</strong> El sábado perdiste 44 segundos frenando por seguridad en una calle. Está bien resuelto, frenar no se negocia, pero en el kilómetro 14 del circuito de CDMX no vas a poder hacerlo sin perder el ritmo de carrera. Ese hábito se entrena ahora.</p>
+  </div>
+
+  <div class="rule">
+    <div class="rt">Regla 3 · las dos alertas encendidas en la larga</div>
+    <p>El sábado pasado corriste con alerta de cadencia sola y sin alerta de ritmo, y aun así la clavaste. El problema nunca fue el reloj. Pero los bloques pasan de 4 a 5 minutos, o sea <strong>25 % más tiempo para que la zancada se estire sin aviso</strong>, y la larga es la sesión que menos te puedes permitir correr rápido.</p>
+    <p class="mono">Garmin Connect · entrenamiento estructurado<br>
+    Repetir <strong>12 veces</strong>: correr 5:00 objetivo <strong>8:50–9:05</strong> · caminar 1:00<br>
+    Alerta global de cadencia · piso 156 · encendida</p>
+    <p>Si el sábado sale limpio con las dos, la del ritmo se retira en la semana 8 y te quedas solo con la cadencia. Es andadera, no muleta permanente.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">04</span><h2>Cambio de calendario · requiere tu visto bueno</h2></div>
+  <div class="sec-note">Lo que está escrito en el plan no es lo que ejecutas. Y lo que ejecutas funciona mejor.</div>
+
+  <div class="rule">
+    <div class="rt">Lo escrito contra lo real</div>
+    <p>El plan dice carrera martes y jueves por la tarde, gimnasio lunes, martes y jueves por la mañana. La semana 6 salió así: <strong>carreras miércoles y jueves por la mañana</strong>, gimnasio lunes, martes y miércoles <strong>por la noche</strong>. Y cerró al 97 % de volumen, la mejor adherencia del plan.</p>
+    <p>Las dos carreras matutinas dieron 167 y 174 de frecuencia cardiaca promedio. La única de tarde del bloque, el 1 de septiembre, dio 167 a un ritmo más lento. La mañana es tu horario, ya no hay duda.</p>
+  </div>
+
+  <div class="rule hard">
+    <div class="rt">Lo que propongo, y por qué así</div>
+    <p>Carreras a <strong>martes, jueves y sábado por la mañana</strong>. Espaciadas un día entre cada una, sin dos días seguidos como pasó el miércoles y jueves de la semana pasada.</p>
+    <p>Gimnasio de noche, que es cuando lo haces, pero con <strong>pierna el martes</strong>, no el lunes. Pierna el lunes por la noche deja 11 horas antes de la carrera del martes por la mañana. Pierna el martes por la noche deja 34 horas antes de la del jueves. Esa es toda la diferencia.</p>
+    <p>Esto es un cambio estructural de la semana tipo, así que no lo aplico sin que lo confirmes. Si no me dices nada, corre el calendario de abajo y lo formalizamos en el cierre de la semana.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">05</span><h2>La semana, día por día</h2></div>
+  <div class="sec-note">18 km · tres carreras · tres de gimnasio · tres días completamente limpios.</div>
+
+  <div class="days">
+
+    <div class="day">
+      <div class="day-name">Lunes<b>14 sep</b></div>
+      <div class="slots">
+        <div class="slot"><span class="tag t-rest">Limpio</span><div class="slot-body">
+          <strong>Sin correr, sin gimnasio</strong>
+          <p>Cuarenta y ocho horas después de la sesión más dura del plan, esfuerzo relativo 163. Pierna se mueve al martes para no dejar 11 horas antes de una carrera.</p>
+          <p><strong>Señal a vigilar:</strong> los primeros pasos al levantarte, hoy y mañana. El dolor tardío pega entre las 24 y las 48 horas. Aquiles y tibia en particular.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="day hero">
+      <div class="day-name">Martes<b>15 sep</b></div>
+      <div class="slots">
+        <div class="slot"><span class="tag t-easy">Fácil AM</span><div class="slot-body">
+          <strong>5 km · método 4:1</strong>
+          <p class="mono">9 ciclos · correr 4:00 → <strong>460 m</strong> · caminar 1:00 · unos 45 min</p>
+          <p>Cadencia 156 y alerta de ritmo en 8:30–9:10. Revisa la distancia de la vuelta al cerrar cada bloque, sobre todo el segundo y el tercero, que es donde se te va.</p>
+        </div></div>
+        <div class="slot"><span class="tag t-gym">Gym PM</span><div class="slot-body">
+          <strong>Pierna · modo fuerza</strong>
+          <p class="mono">Sentadilla 4×5 · Peso muerto rumano 3×6 · Hip thrust 3×8 · Talón de pie 4×8 con carga · Core 10 min</p>
+          <p><strong>Cuatro a seis repeticiones, carga alta, sin llegar al fallo.</strong> No es hipertrofia. La referencia del 7 de septiembre es sentadilla a 133 kg por 6. Si puedes con 6 limpias a más carga, súbela. Anota todo en Notion.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-name">Miércoles<b>16 sep</b></div>
+      <div class="slots">
+        <div class="slot"><span class="tag t-gym">Gym PM</span><div class="slot-body">
+          <strong>Empuje · 10 series, no 27</strong>
+          <p class="mono">Press de banca con mancuernas 4×6 · Press militar 3×8 · Extensiones de tríceps 3×10</p>
+          <p><strong>Cero fallo y cero drop sets.</strong> El martes pasado hiciste 27 series con 6,696 kg de tonelaje, todo en tren superior, que ya está al 135–143 % del ideal mientras las piernas van al 103–106 %. Cada kilo que agregues arriba lo cargan las piernas 21,100 metros el 13 de diciembre.</p>
+          <p>El press militar regresa al calendario. No apareció en ninguna de las sesiones de la semana pasada.</p>
+        </div></div>
+        <div class="slot"><span class="tag t-rest">Sin correr</span><div class="slot-body">
+          <strong>Día sin carrera</strong>
+          <p>Aunque te sientas bien. El volumen de esta semana ya subió 16 %.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="day hero">
+      <div class="day-name">Jueves<b>17 sep</b></div>
+      <div class="slots">
+        <div class="slot"><span class="tag t-easy">Fácil AM</span><div class="slot-body">
+          <strong>5 km · método 4:1</strong>
+          <p class="mono">9 ciclos · correr 4:00 → <strong>460 m</strong> · caminar 1:00 · unos 45 min</p>
+          <p>Misma configuración del martes. Esta es la sesión de referencia del bloque: el jueves 10 te dio cadencia 156.0, ritmo 8:21 y desacople 8.7 %. Si esta sale igual o mejor, la base se está moviendo.</p>
+        </div></div>
+        <div class="slot"><span class="tag t-gym">Gym PM</span><div class="slot-body">
+          <strong>Tracción + sóleo</strong>
+          <p class="mono">Jalón 4×6 · Remo 4×8 · Curl 3×10 · <strong>Talón sentado 3×15</strong> · Core 10 min</p>
+          <p>El talón sentado es la contramedida contra el punto de falla número uno de tu perfil. Jueves por la noche está bien, deja 34 horas antes de la larga. <strong>Nunca el viernes.</strong></p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-name">Viernes<b>18 sep</b></div>
+      <div class="slots">
+        <div class="slot"><span class="tag t-rest">Limpio</span><div class="slot-body">
+          <strong>Sin correr, sin gimnasio, sin pantorrilla</strong>
+          <p>Se protege a propósito. Piernas frescas 24 horas antes de la larga.</p>
+          <p><strong>Tarea de esta noche:</strong> carga el entrenamiento estructurado de 12 ciclos en Garmin Connect y pon la alarma a las 6:00.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="day hero">
+      <div class="day-name">Sábado<b>19 sep</b></div>
+      <div class="slots">
+        <div class="slot"><span class="tag t-long">Tirada larga</span><div class="slot-body">
+          <strong>8 km · método 5:1 · salida 6:45</strong>
+          <p class="mono">12 ciclos · correr 5:00 → <strong>555 m</strong> · caminar 1:00 · unos 76 min<br>
+          Plano, Cancún, ruta con pocos cruces · FC promedio ≤ 160</p>
+          <p>Si al ciclo 12 el reloj ya marca 8.0 km o más, paras ahí aunque falte tiempo. Si falta terreno, agregas un bloque de 5:00 suelto, no un ciclo completo.</p>
+          <p><strong>Corte:</strong> dos bloques seguidos arriba de 580 metros y cierras la sesión, reportando los kilómetros reales. No fuerzas el resto.</p>
+          <p>La cadencia ya la tienes automatizada. La variable nueva de esta semana es sostener el paso corto cuando lleves 50 minutos, no 25.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="day-name">Domingo<b>20 sep</b></div>
+      <div class="slots">
+        <div class="slot"><span class="tag t-rest">Descanso total</span><div class="slot-body">
+          <strong>Innegociable</strong>
+          <p>Sin carrera, sin gimnasio. En el bloque 1 dos sesiones clave terminaron corriéndose domingo por la noche. Eso no vuelve a pasar.</p>
+          <p>Reporta el cierre de semana: sensación de cada sesión del 1 al 10, cargas del gimnasio, y cualquier molestia aunque sea leve.</p>
+        </div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">06</span><h2>La aritmética de esta semana</h2></div>
+  <div class="sec-note">Dos números que conviene ver antes de que empiecen a doler.</div>
+
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Sesión</th><th>Distancia</th><th>Método</th><th>m / bloque</th><th>Ciclos</th><th>Tiempo aprox</th></tr></thead>
+    <tbody>
+      <tr><td>Martes 15 · AM</td><td class="n">5.0 km</td><td class="n">4:1</td><td class="n mid">460</td><td class="n">9</td><td class="n">45 min</td></tr>
+      <tr><td>Jueves 17 · AM</td><td class="n">5.0 km</td><td class="n">4:1</td><td class="n mid">460</td><td class="n">9</td><td class="n">45 min</td></tr>
+      <tr><td>Sábado 19 · 6:45</td><td class="n lo">8.0 km</td><td class="n">5:1</td><td class="n mid">555</td><td class="n">12</td><td class="n hi">76 min</td></tr>
+      <tr class="tot"><td>Semana 7</td><td class="n">18.0 km</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">2 h 46 min</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="grid2" style="margin-top:18px">
+    <div class="card">
+      <h3>La larga pesa 44 % de la semana</h3>
+      <p>Ocho kilómetros de dieciocho. Lo sano es entre 35 y 40 %. Es aritmética de correr tres veces por semana, no un error de diseño: con tres días, una larga que crece siempre se come más del total.</p>
+      <p><strong>Esto se decide al cerrar la semana 8.</strong> Si entra un cuarto día de carrera corta en el bloque 3, la larga baja a cerca del 45 % del volumen en las semanas pico en lugar del 58 % que hoy proyecta la semana 17. No se mete antes porque la adherencia de tres días apenas lleva dos semanas buenas.</p>
+    </div>
+    <div class="card">
+      <h3>El salto de tiempo es mayor que el de distancia</h3>
+      <p>La distancia de la larga sube 33 %, de 6 a 8 km. El <strong>tiempo sube 50 %</strong>, de 50 a 76 minutos, porque el método 5:1 al ritmo correcto avanza despacio.</p>
+      <p>Tu desacople limpio a 44 minutos fue 8.7 %. A 76 minutos va a ser mayor y eso es esperado, no es alarma. La alarma sería que la <strong>cadencia</strong> se caiga más de 5 pasos por minuto. Si pasa, caminas 90 segundos y sigues.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">07</span><h2>Lo que está corriendo contra el reloj</h2></div>
+  <div class="sec-note">Dos cosas con fecha y una sin.</div>
+
+  <div class="rule hard">
+    <div class="rt">14 días · valoración cardiológica</div>
+    <p>Frecuencia cardiaca máxima observada de <strong>199 ppm a los 32 años</strong>, trece por encima de la fórmula por edad. Y dos días de la semana pasada por encima de tu umbral provisional de 186, corriendo a ritmo sub-umbral: 187 el miércoles y 188 el sábado.</p>
+    <p>El bloque 3 arranca el <strong>28 de septiembre</strong> y sube intensidad. <strong>Si ese día no hay valoración hecha o agendada, el bloque 3 arranca sin trabajo de calidad.</strong> Lo escribo con esas palabras para que no sea una sorpresa dentro de dos semanas.</p>
+  </div>
+
+  <div class="rule">
+    <div class="rt">19 días · test de campo de la semana 9</div>
+    <p>Sábado 3 de octubre, 20 minutos, en la mañana y a ritmo parejo. De ahí se re-deriva la FCU, que ya quedó confirmada como baja. <strong>Consigue la banda pectoral antes.</strong> El sensor de muñeca sirve para tendencias, no para fijar zonas que van a gobernar diez semanas.</p>
+  </div>
+
+  <div class="rule">
+    <div class="rt">Sin fecha · InBody de control</div>
+    <p>Atrasado desde el 29 de agosto. Ahora importa más que antes: seis semanas de gimnasio que resultaron ser hipertrofia de tren superior, no el trabajo de fuerza que decía el plan. La pregunta ya no es si el bloque movió composición, es en qué dirección.</p>
+  </div>
+</section>
+
+<div class="foot">
+  Plan de la semana 7 · bloque 2 · base aeróbica<br>
+  VDOT 23.6 · FCU 186 provisional, confirmada como baja · proyección vigente 2:20–2:35 en altitud<br>
+  Fuente de carrera: Strava · fuente de fuerza: Notion · continuidad: BITACORA-21K-CDMX<br>
+  Rock 'n' Roll Mexico City · domingo 13 de diciembre de 2026 · 6:15 AM
+</div>
+
+</div>
+</body>
+</html>
