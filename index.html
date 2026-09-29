@@ -85,6 +85,7 @@ tr.tot td{background:var(--panel-2);font-weight:600}
 .col .plan{width:100%;background:var(--panel-2);border:1px solid var(--line);border-bottom:none;position:relative}
 .col .real{position:absolute;left:0;right:0;bottom:0;background:var(--easy);opacity:.85}
 .col .real.bad{background:var(--alert)}
+.col .real.over{background:var(--quality)}
 .col .num{font-family:var(--mono);font-size:9px;color:var(--ink-faint);position:absolute;top:-14px;left:0;right:0;text-align:center}
 .axis{display:flex;gap:2px;margin-top:6px}
 .axis span{flex:1;text-align:center;font-family:var(--mono);font-size:9.5px;color:var(--ink-faint)}
@@ -94,6 +95,7 @@ tr.tot td{background:var(--panel-2);font-weight:600}
 .legend{font-family:var(--mono);font-size:11px;color:var(--ink-faint);margin-top:12px;line-height:1.7}
 .legend b{color:var(--easy);font-weight:500}
 .legend i{color:var(--alert);font-style:normal}
+.legend u{color:var(--quality);text-decoration:none}
 
 .days{border:1px solid var(--line);background:var(--panel)}
 .day{display:grid;grid-template-columns:104px 1fr;gap:14px;padding:15px 16px;border-bottom:1px solid var(--line)}
@@ -106,6 +108,7 @@ tr.tot td{background:var(--panel-2);font-weight:600}
 .tag{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:3px;white-space:nowrap;flex-shrink:0;margin-top:3px;color:#07131B;font-weight:600}
 .t-easy{background:var(--easy)}.t-long{background:var(--long)}
 .t-gym{background:var(--gym)}.t-rest{background:var(--rest);color:var(--ink-dim)}
+.t-test{background:var(--quality)}
 .t-done{background:var(--ink-faint);color:#07131B}
 .slot-body strong{font-weight:600;display:block;font-size:15px;margin-bottom:3px}
 .slot-body p{font-size:13.5px;color:var(--ink-dim)}
@@ -131,23 +134,23 @@ tr.tot td{background:var(--panel-2);font-weight:600}
 <div class="wrap">
 
 <header class="masthead">
-  <div class="eyebrow">Rock 'n' Roll Mexico City · semana 8 de 19 en curso · bloque 2 · descarga · actualizado 20 sep 2026</div>
+  <div class="eyebrow">Rock 'n' Roll Mexico City · semana 9 de 19 en curso · bloque 3 · desarrollo · entra la calidad · actualizado 29 sep 2026</div>
   <h1>Medio maratón<br><em>CDMX — 13 dic 2026</em></h1>
   <div class="subline">Ritmos Daniels (VDOT) sobre una acumulación conservadora, con fuerza periodizada. Se escribe bloque por bloque: cada uno se redacta al cerrar el anterior con datos reales. Las cifras de abajo salen de lo que corriste, no de lo que se planeó.</div>
 
   <div class="gauges">
-    <div class="gauge"><div class="k">Días a la carrera</div><div class="v">84</div><div class="n">12 semanas restantes</div></div>
+    <div class="gauge"><div class="k">Días a la carrera</div><div class="v">76</div><div class="n">11 semanas restantes</div></div>
     <div class="gauge alert"><div class="k">Escenario vigente</div><div class="v">2:20–2:35</div><div class="n">revisado el 30 ago desde 2:10–2:22</div></div>
     <div class="gauge"><div class="k">Meta declarada</div><div class="v">Sub-2:00</div><div class="n">5:41 min/km · exige VDOT 39.5</div></div>
     <div class="gauge good"><div class="k">VDOT medido</div><div class="v">23.6</div><div class="n">test máximo del 30 ago</div></div>
-    <div class="gauge good"><div class="k">Cadencia</div><div class="v">156</div><div class="n">pasos/min · resuelta el 10 sep</div></div>
+    <div class="gauge"><div class="k">Tempo</div><div class="v">7:40</div><div class="n">–7:50/km · entra en la S9</div></div>
     <div class="gauge"><div class="k">Altitud de salida</div><div class="v">2,234</div><div class="n">m · entrenas en 0 m · salida 6:15 AM</div></div>
   </div>
 </header>
 
 <section>
   <div class="sec-head"><span class="sec-num">01</span><h2>Dónde vas</h2></div>
-  <div class="sec-note">Bloque 1 cerrado el 30 de agosto. Esta sección se sobrescribe cada domingo con datos de Strava y con lo que reportas del gimnasio. Es el primer lugar donde mirar antes de discutir cualquier ajuste.</div>
+  <div class="sec-note">Bloque 2 cerrado el 27 de septiembre. Esta sección se sobrescribe cada domingo con datos de Strava y con lo que reportas del gimnasio. Es el primer lugar donde mirar antes de discutir cualquier ajuste.</div>
 
   <div class="scroll">
   <table>
@@ -159,9 +162,11 @@ tr.tot td{background:var(--panel-2);font-weight:600}
       <tr><td class="n">S4 · 24–30 ago</td><td class="n lo">3 de 3</td><td class="n hi">sin reportar</td><td class="n">11.00 km</td><td class="n">10.14 km</td><td class="mid">92 % · ninguna en su día · test</td></tr>
       <tr class="tot"><td class="n">Bloque 1</td><td class="n hi">9 de 12 · 75 %</td><td class="n">11 de 11 en S1–S3</td><td class="n">45.00 km</td><td class="n hi">30.96 km</td><td class="hi">69 % · umbral era 85 %</td></tr>
       <tr><td class="n">S5 · 31 ago – 6 sep</td><td class="n lo">3 de 3</td><td class="n">3 de 3 declaradas</td><td class="n">13.00 km</td><td class="n mid">11.57 km</td><td class="mid">89 % · larga cortada al 58 % · 3 de 3 fuera de rango de ritmo</td></tr>
-      <tr><td class="n">S6 · 7 – 13 sep</td><td class="n">cerrada</td><td class="n lo">3 de 3</td><td class="n">16.00 km</td><td class="n lo">15.54 km</td><td class="lo">97 % · cadencia 156 resuelta · larga 5.52 de 6</td></tr>
-      <tr><td class="n">S7 · 14 – 20 sep</td><td class="n">cerrada</td><td class="n lo">3 de 3</td><td class="n">18.00 km</td><td class="n mid">14.04 km</td><td class="mid">78 % · larga 5.77 de 8 en GDL · desacople 3.0 %</td></tr>
-      <tr><td class="n">S8 · 21 – 27 sep</td><td class="n">en curso</td><td class="n">0 de 3</td><td class="n">~14.5 km</td><td class="n">0.00 km</td><td class="mid">Descarga en minutos · 35 · 35 · 66 · decide el cuarto día</td></tr>
+      <tr><td class="n">S6 · 7 – 13 sep</td><td class="n lo">3 de 3</td><td class="n">4 · 3 con cargas</td><td class="n">16.00 km</td><td class="n lo">15.54 km</td><td class="lo">97 % · cadencia 156 resuelta · larga 5.52 de 6</td></tr>
+      <tr><td class="n">S7 · 14 – 20 sep</td><td class="n lo">3 de 3</td><td class="n">4 · 1 registrada</td><td class="n">18.00 km</td><td class="n mid">14.04 km</td><td class="mid">78 % · larga 5.77 de 8 en GDL · desacople 3.0 %</td></tr>
+      <tr><td class="n">S8 · 21 – 27 sep</td><td class="n lo">3 de 3 · jue declarado</td><td class="n">3 declaradas</td><td class="n">14.00 km</td><td class="n mid">17.72 km</td><td class="mid">127 % · la descarga no ocurrió · primera larga completa del bloque: 7.46 km, FC 158</td></tr>
+      <tr class="tot"><td class="n">Bloque 2</td><td class="n lo">12 de 12 · 100 %</td><td class="n">cargas solo 7–9 sep</td><td class="n">61.00 km</td><td class="n lo">58.87 km</td><td class="lo">96.5 % · umbral de 85 % cumplido</td></tr>
+      <tr><td class="n">S9 · 28 sep – 4 oct</td><td class="n">en curso</td><td class="n">pierna lun 28</td><td class="n">17.00 km</td><td class="n">0.00 km</td><td class="mid">4 días · zancadas mié · tempo 3×4 min jue · 20 · 30 · 30 · 84 min</td></tr>
     </tbody>
   </table>
   </div>
@@ -170,30 +175,26 @@ tr.tot td{background:var(--panel-2);font-weight:600}
     <div class="card">
       <h3>Lo que va bien</h3>
       <ul>
-        <li><strong>El ritmo no cayó en el test.</strong> Parciales del 30 de agosto: 7:52 · 7:18 · 7:10 · 7:11. El último kilómetro fue tan rápido como el tercero.</li>
-        <li><strong>La cadencia dejó de colapsar.</strong> 154–156 pasos/min los cuatro kilómetros, bajo esfuerzo máximo. En la larga del 16 de agosto fue 155 → 140.</li>
-        <li>Cuatro kilómetros <strong>continuos</strong>, sin caminata. Por eso la larga sube de 4:1 a 5:1 y las fáciles pasan a continuas.</li>
-        <li>VDOT real <strong>18.7 → 23.6 en cuatro semanas</strong>. +4.9 puntos de readquisición.</li>
-        <li>Cero molestias registradas en 21 sesiones.</li>
-        <li>El jueves 27 fue la primera sesión del plan dentro del control fisiológico: FC promedio 153.2.</li>
-        <li><strong>Misma sesión, ocho días después, menos pulso.</strong> El 24 de agosto corriste 3 km continuos a 8:17/km con FC promedio 171.1. El 1 de septiembre, mismo ritmo al segundo, FC promedio 167.2. Cuatro pulsaciones menos al mismo trabajo es adaptación medida, no sensación.</li>
-        <li><strong>Semana 5 cerrada en 89 %, la mejor adherencia desde la S2</strong>, y las tres sesiones de carrera ocurrieron. El problema dejó de ser presentarse.</li>
-        <li><strong>Cortaste la larga del sábado por tu cuenta</strong>, y antes de lo que marcaba la regla. Primera vez en el plan que aplicas una salida de emergencia sin que te la recuerde.</li>
+        <li><strong>Bloque 2 cerrado en 96.5 % del volumen y 12 de 12 sesiones.</strong> El bloque 1 cerró en 69 % y 75 %. Presentarse dejó de ser el problema.</li>
+        <li><strong>Primera tirada larga completa del bloque.</strong> Sábado 26: 11 de 11 ciclos, 65 minutos, 7.46 km, sensación 3.</li>
+        <li><strong>La FC de la larga bajó 14 ppm en tres semanas:</strong> 172.0 el 12 sep, 164.1 el 19 y 158.3 el 26. Dos de las tres, en altitud.</li>
+        <li><strong>Desacople de 3.0 y 3.2 %</strong> en las dos largas de Guadalajara, contra 10.7 % el 12 sep y 17 % el 16 ago. La base aguanta 65 minutos sin despegarse.</li>
+        <li><strong>Cero molestias en todo el bloque 2</strong>, con el volumen y la zancada subiendo.</li>
+        <li><strong>Entra el cuarto día:</strong> la semana 8 cerró 3 de 3.</li>
+        <li>Cadencia entre 154.6 y 160.2 en todo el bloque. Ya no necesita regla.</li>
+        <li>La sensación de cada sesión ya se registra en Strava.</li>
       </ul>
     </div>
     <div class="card">
       <h3>Lo que no</h3>
       <ul>
-        <li><strong>El bloque cerró en 69 % del volumen y 75 % de las sesiones.</strong> El umbral era 85 %. Por eso se reescribió la rampa completa hasta diciembre.</li>
-        <li><strong>Sábado: 0 carreras de 9 en todo el bloque.</strong> Las tres tiradas largas prescritas en sábado, tres fallidas.</li>
-        <li>Dos de las tres sesiones clave terminaron corriéndose <strong>domingo por la noche</strong>, que es el día de descanso innegociable. Eso es falla de diseño, no de voluntad.</li>
-        <li><strong>Gimnasio de la S4 sin reportar</strong>, y cinco semanas con once sesiones declaradas sin una sola carga registrada.</li>
-        <li>Falta la sensación 1-10 por sesión. No sale del reloj.</li>
-        <li><strong>La primera sesión del bloque 2 rompió la regla de ritmo.</strong> Martes 1 de septiembre: 8:38 · 8:18 · 8:14 min/km. El piso son 9:00 y los tres kilómetros salieron abajo. El km 3 completo promedió 177 ppm, que es Z4 en una sesión fácil, y tocó 186, que es exactamente la FCU.</li>
-        <li><strong>La cadencia bajó al mismo ritmo.</strong> 154.3 pasos/min el 24 de agosto contra 150.3 el 1 de septiembre, corriendo idéntico. Zancada más larga, más impacto por paso, con 111 kg encima.</li>
-        <li><strong>Las tres sesiones de la semana 5 salieron fuera del rango de ritmo.</strong> Martes 36 s/km bajo el piso, jueves 3 s/km, sábado 64 s/km. El mejor kilómetro del sábado fue 7:17, a siete segundos del mejor kilómetro del test máximo del 30 de agosto.</li>
-        <li><strong>Segunda tirada larga fallida seguida.</strong> Cortada en 3.50 km de 6, al 58 %. Por eso la larga de la S6 se repite en 6 y no sube a 7.</li>
-        <li><strong>Trece sesiones de gimnasio sin una sola carga registrada.</strong> Desde la S13 el trabajo excéntrico depende de saber si la fuerza progresó.</li>
+        <li><strong>La regla de ritmo no gobernó el bloque.</strong> 1 de 12 sesiones sobre el piso de 9:00. Seis seguidas abajo desde el 15 de septiembre.</li>
+        <li><strong>La descarga de la semana 8 no ocurrió.</strong> 17.72 km contra 14, más que la semana 7. Rodajes de 45 minutos en vez de 35.</li>
+        <li><strong>Cierre fuerte a propósito el martes 22:</strong> 184 m a 4:54/km con FC 177, en una sesión fácil.</li>
+        <li><strong>Sin valoración cardiológica.</strong> La calidad entra por la guía del ACSM, con cero diagnósticos confirmados. El protocolo de síntomas pasa a mandar sobre el plan.</li>
+        <li><strong>Gimnasio sin números.</strong> Cargas completas solo del 7 al 9 de septiembre. La pierna lleva sin datos desde el 7 sep, y de ella depende el excéntrico de la semana 13.</li>
+        <li><strong>Tres de cuatro largas del bloque 2 cortadas</strong>, cada una por una causa distinta: desnivel, hora y familia.</li>
+        <li>La larga sigue saliendo tarde: 7:40 el 26 de septiembre contra 6:45 prescritas.</li>
       </ul>
     </div>
   </div>
@@ -210,52 +211,55 @@ tr.tot td{background:var(--panel-2);font-weight:600}
     <a href="https://marcoagarciai.github.io/plan-21k/semana-05.html">Semana 05 · 31 ago – 6 sep</a>
     <a href="https://marcoagarciai.github.io/plan-21k/semana-06.html">Semana 06 · 7 – 13 sep</a>
     <a href="https://marcoagarciai.github.io/plan-21k/semana-07.html">Semana 07 · 14 – 20 sep</a>
-    <a class="now" href="https://marcoagarciai.github.io/plan-21k/semana-08.html">Semana 08 · 21 – 27 sep · en curso</a>
+    <a href="https://marcoagarciai.github.io/plan-21k/semana-08.html">Semana 08 · 21 – 27 sep</a>
+    <a class="now" href="https://marcoagarciai.github.io/plan-21k/semana-09.html">Semana 09 · 28 sep – 4 oct · en curso</a>
   </div>
 </section>
 
 <section>
   <div class="sec-head"><span class="sec-num">02</span><h2>Semana en curso · día por día</h2></div>
-  <div class="sec-note">Semana 8 de 19 · 21 al 27 de septiembre · bloque 2, <strong style="color:var(--ink)">descarga</strong>. Se prescribe en minutos, no en kilómetros: la semana 7 demostró que medir distancia empuja a acelerar cuando falta tiempo. Objetivo único: tres sesiones completas, ninguna por debajo de 9:00/km de promedio. Si cierra en 3 de 3, entra el cuarto día en el bloque 3. El detalle está en <a href="https://marcoagarciai.github.io/plan-21k/semana-08.html" style="color:var(--easy)">la página de la semana 8</a>.</div>
+  <div class="sec-note">Semana 9 de 19 · 28 de septiembre al 4 de octubre · bloque 3, <strong style="color:var(--ink)">entra la calidad</strong>. Primera semana con cuatro días de carrera, todas por la mañana y en minutos, con zancadas el miércoles y el primer tempo el jueves. Esta semana corre martes, miércoles y jueves seguidos porque la pierna se hizo el lunes. El test del sábado se cancela. El detalle está en <a href="https://marcoagarciai.github.io/plan-21k/semana-09.html" style="color:var(--easy)">la página de la semana 9</a>.</div>
 
   <div class="days">
 
     <div class="day">
-      <div class="day-name">Lunes<b>21 sep</b></div>
-      <div class="slots"><div class="slot"><span class="tag t-rest">Sin correr</span><div class="slot-body">
-        <strong>Día sin carrera</strong>
-        <p>Pierna va el martes, no hoy.</p>
+      <div class="day-name">Lunes<b>28 sep</b></div>
+      <div class="slots"><div class="slot"><span class="tag t-done">Hecho</span><div class="slot-body">
+        <strong>Gym PM · pierna, glúteo, gemelos y sóleo</strong>
+        <p>Sin carrera: el plan de la semana no estaba escrito. Cargas a Notion el martes.</p>
       </div></div></div>
     </div>
 
     <div class="day hero">
-      <div class="day-name">Martes<b>22 sep</b></div>
+      <div class="day-name">Martes<b>29 sep</b></div>
+      <div class="slots"><div class="slot"><span class="tag t-easy">Rodaje AM</span><div class="slot-body">
+        <strong>20 minutos · método 4:1</strong>
+        <p class="mono">4 ciclos · alerta 8:30 – 9:10 · cadencia 156 · al terminar sesión ≥ 9:00 · FC ≤ 158</p>
+        <p>Corto a propósito: piernas cargadas de la noche anterior. Sin gimnasio en la noche.</p>
+      </div></div></div>
+    </div>
+
+    <div class="day hero">
+      <div class="day-name">Miércoles<b>30 sep</b></div>
       <div class="slots">
         <div class="slot"><span class="tag t-easy">Rodaje AM</span><div class="slot-body">
-          <strong>35 minutos · método 4:1</strong>
-          <p class="mono">7 ciclos · alerta 8:30 – 9:10 · cadencia 156 · al terminar sesión ≥ 9:00 · FC ≤ 158</p>
+          <strong>30 minutos · método 4:1 + 6 zancadas</strong>
+          <p class="mono">6 ciclos · alerta 8:30 – 9:10 · al terminar sesión ≥ 9:00 · FC ≤ 158<br>Zancadas 6 × 20 s rápidas y sueltas · 90 s caminando</p>
         </div></div>
         <div class="slot"><span class="tag t-gym">Gym PM</span><div class="slot-body">
-          <strong>Pierna · modo fuerza</strong>
-          <p>Sentadilla 4×5 · PMR 3×6 · hip thrust 3×8 · talón de pie 4×8. <strong>Registra las cargas en Notion.</strong></p>
+          <strong>Empuje · 10 series</strong>
+          <p>Press banca con mancuernas 4×6 · press militar 3×8 · tríceps 3×10. Sin fallo.</p>
         </div></div>
       </div>
     </div>
 
-    <div class="day">
-      <div class="day-name">Miércoles<b>23 sep</b></div>
-      <div class="slots"><div class="slot"><span class="tag t-gym">Gym PM</span><div class="slot-body">
-        <strong>Empuje · 10 series</strong>
-        <p>Press banca con mancuernas 4×6 · press militar 3×8 · tríceps 3×10. Sin fallo.</p>
-      </div></div></div>
-    </div>
-
     <div class="day hero">
-      <div class="day-name">Jueves<b>24 sep</b></div>
+      <div class="day-name">Jueves<b>1 oct</b></div>
       <div class="slots">
-        <div class="slot"><span class="tag t-easy">Rodaje AM</span><div class="slot-body">
-          <strong>35 minutos · método 4:1</strong>
-          <p class="mono">7 ciclos · alerta 8:30 – 9:10 · cadencia 156 · al terminar sesión ≥ 9:00 · FC ≤ 158</p>
+        <div class="slot"><span class="tag t-test">Tempo AM</span><div class="slot-body">
+          <strong>30 minutos · primer tempo</strong>
+          <p class="mono">10 min fácil 4:1 · 3 × 4 min a 7:40 – 7:50/km con 1:30 caminando · 5 min suave</p>
+          <p>Esfuerzo 7 de 10. El tercero igual que el primero, no más rápido.</p>
         </div></div>
         <div class="slot"><span class="tag t-gym">Gym PM</span><div class="slot-body">
           <strong>Tracción + sóleo</strong>
@@ -265,33 +269,33 @@ tr.tot td{background:var(--panel-2);font-weight:600}
     </div>
 
     <div class="day">
-      <div class="day-name">Viernes<b>25 sep</b></div>
+      <div class="day-name">Viernes<b>2 oct</b></div>
       <div class="slots"><div class="slot"><span class="tag t-rest">Limpio</span><div class="slot-body">
         <strong>Sin correr, sin gimnasio</strong>
-        <p>Carga la larga en Garmin Connect y pon la alarma.</p>
+        <p>Carga la larga en Garmin Connect, deja lista el agua y pon la alarma.</p>
       </div></div></div>
     </div>
 
     <div class="day hero">
-      <div class="day-name">Sábado<b>26 sep</b></div>
+      <div class="day-name">Sábado<b>3 oct</b></div>
       <div class="slots"><div class="slot"><span class="tag t-long">Tirada larga</span><div class="slot-body">
-        <strong>66 minutos · método 5:1 · salida 6:45</strong>
-        <p class="mono">11 ciclos · alerta 8:50 – 9:20 · cadencia 156 · al terminar sesión ≥ 9:00 · FC ≤ 160 (≤ 165 en GDL)</p>
-        <p>Al ritmo correcto salen unos 7 km. Si salen 7.8, corriste rápido.</p>
+        <strong>84 minutos · método 5:1 · salida 6:45</strong>
+        <p class="mono">14 ciclos · alerta 8:50 – 9:20 · cadencia 156 · al terminar sesión ≥ 9:00 · FC ≤ 160</p>
+        <p>Aquí iba el test de 20 minutos: se cancela. Al ritmo correcto salen unos 9 km. Si salen más de 9.4, corriste rápido.</p>
       </div></div></div>
     </div>
 
     <div class="day">
-      <div class="day-name">Domingo<b>27 sep</b></div>
+      <div class="day-name">Domingo<b>4 oct</b></div>
       <div class="slots"><div class="slot"><span class="tag t-rest">Descanso total</span><div class="slot-body">
         <strong>Innegociable</strong>
-        <p>Reporta el cierre del bloque 2.</p>
+        <p>Reporta sensación de cada sesión y cualquier molestia.</p>
       </div></div></div>
     </div>
 
   </div>
 
-  <p style="font-size:13.5px;color:var(--ink-dim);margin-top:16px">Con 2 de 3 sesiones el volumen de la descarga queda bien, pero el cuarto día solo entra con 3 de 3. Lo que falta no se compensa: ni con ritmo, ni con otra sesión, ni con la larga.</p>
+  <p style="font-size:13.5px;color:var(--ink-dim);margin-top:16px">Con 3 de 4 sesiones la semana queda bien. Lo que falta no se compensa: ni con ritmo, ni con otra sesión, ni con la larga. <strong style="color:var(--ink)">Ningún bloque se cierra fuerte. Si los fáciles cierran bajo 9:00, la calidad sale la semana siguiente.</strong></p>
 </section>
 
 <section>
@@ -310,9 +314,10 @@ tr.tot td{background:var(--panel-2);font-weight:600}
       <tr><td>Brazos / tronco / piernas</td><td class="n">135–143 % / 120.7 % / 103.5–106.1 %</td><td class="n">100 %</td><td>Torso sobredesarrollado = peso muerto 21 km. La pierna es el eslabón relativo débil</td></tr>
       <tr><td>FC en reposo</td><td class="n">74 ppm</td><td class="n">—</td><td>Alarma de sobrecarga a partir de 80 tres mañanas seguidas</td></tr>
       <tr><td>FC máxima observada</td><td class="n hi">199 ppm</td><td class="n">teórica 188</td><td>11 ppm sobre la fórmula por edad. La real probablemente ≥ 205</td></tr>
-      <tr><td>FCU provisional</td><td class="n">186 ppm</td><td class="n">—</td><td>Z1 ≤157 · Z2 158–165 · Z3 166–175 · Z4 176–184 · Z5 185+. Se valida el 3 de octubre</td></tr>
+      <tr><td>FCU provisional</td><td class="n">186 ppm</td><td class="n">—</td><td>Z1 ≤157 · Z2 158–165 · Z3 166–175 · Z4 176–184 · Z5 185+. Se re-deriva del 10K del 24 de octubre</td></tr>
       <tr><td>Test máximo · 30 ago</td><td class="n lo">3.99 km en 29:31</td><td class="n">7:24 min/km</td><td>VDOT 23.6 · corrido a las 19:03 con calor: es un piso, no un techo</td></tr>
-      <tr><td>Ritmo fácil vigente</td><td class="n mid">9:00–9:40 min/km</td><td class="n">E de Daniels</td><td>Gobierna el bloque 2. Ninguna sesión abajo de 9:00</td></tr>
+      <tr><td>Ritmo fácil vigente</td><td class="n mid">9:00–9:40 min/km</td><td class="n">E de Daniels</td><td>Sigue en el bloque 3. Ninguna sesión abajo de 9:00</td></tr>
+      <tr><td>Valoración cardiológica</td><td class="n hi">No se hará</td><td class="n">decisión del 28 sep</td><td>Cero diagnósticos, confirmado el 28 sep. La sustituyen la guía ACSM y el protocolo de síntomas de la sección 10</td></tr>
       <tr><td>Reloj</td><td class="n">Garmin FR165</td><td class="n">desde 27 ago</td><td>Sin Training Status ni carga de entrenamiento: el control de fatiga va a mano en la bitácora</td></tr>
     </tbody>
   </table>
@@ -337,8 +342,8 @@ tr.tot td{background:var(--panel-2);font-weight:600}
       <div class="col"><span class="plan" style="height:39%"><span class="real" style="height:89%"></span></span><span class="num">13</span></div>
       <div class="col"><span class="plan" style="height:48%"><span class="real" style="height:97%"></span></span><span class="num">16</span></div>
       <div class="col"><span class="plan" style="height:55%"><span class="real bad" style="height:78%"></span></span><span class="num">18</span></div>
-      <div class="col"><span class="plan" style="height:42%;border-color:var(--quality)"></span><span class="num">14</span></div>
-      <div class="col"><span class="plan" style="height:52%"></span><span class="num">17</span></div>
+      <div class="col"><span class="plan" style="height:42%"><span class="real over" style="height:127%"></span></span><span class="num">14</span></div>
+      <div class="col"><span class="plan" style="height:52%;border-color:var(--quality)"></span><span class="num">17</span></div>
       <div class="col"><span class="plan" style="height:58%"></span><span class="num">19</span></div>
       <div class="col"><span class="plan" style="height:67%"></span><span class="num">22</span></div>
       <div class="col"><span class="plan" style="height:48%"></span><span class="num">16</span></div>
@@ -351,7 +356,7 @@ tr.tot td{background:var(--panel-2);font-weight:600}
       <div class="col"><span class="plan" style="height:79%;background:var(--long)"></span><span class="num">26</span></div>
     </div>
     <div class="axis">
-      <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span class="b">8</span><span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span>
+      <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span class="b">9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span>
     </div>
     <div class="blocks">
       <div style="flex:4">B1 · Adaptación</div>
@@ -361,7 +366,7 @@ tr.tot td{background:var(--panel-2);font-weight:600}
       <div style="flex:3">B5 · Pico y carrera</div>
     </div>
     <div class="legend">
-      Km por semana. <b>Verde</b> = ejecutado dentro de lo aceptable · <i>rojo</i> = ejecutado muy por debajo del plan.<br>
+      Km por semana. <b>Verde</b> = ejecutado dentro de lo aceptable · <i>rojo</i> = ejecutado muy por debajo del plan · <u>ámbar</u> = por encima del plan.<br>
       Rampa vigente: 10 · 11 · 13 · 11 — 13 · 16 · 18 · 14 — 17 · 19 · 22 · 16 — 24 · 27 · 30 · 22 — 33 · 24 · 26<br>
       Tirada larga: 4 · 5 · 6 · 5 — 6 · 7 · 8 · 7 — 9 · 10 · 12 · 9 — 13 · 15 · 17 · 12 — 19 · 12 · 21.1
     </div>
@@ -371,13 +376,13 @@ tr.tot td{background:var(--panel-2);font-weight:600}
     <div class="rt">Por qué la curva se reescribió completa el 30 de agosto</div>
     <p>La curva anterior pedía 16 · 19 · 22 · 17 para el bloque 2 y llegaba a un pico de <strong>48 km por semana</strong>. Estaba calculada suponiendo 49 km de base al cierre del bloque 1. Hubo <strong>30.96</strong>.</p>
     <p>Arrancar la semana 5 en 16 km desde los 10.14 reales es un salto del 58 % con 111 kg encima. El pico del plan baja de 48 a <strong>33 km/semana</strong> y la tirada larga máxima de 20 a <strong>19 km</strong>. No es castigo, es la única curva que la base real sostiene.</p>
-    <p><strong>La tirada larga es intocable.</strong> Cualquier recorte de una semana sale de los rodajes, nunca de la larga. Y la calidad entra en la semana 9, no antes.</p>
+    <p><strong>La tirada larga es intocable.</strong> Cualquier recorte de una semana sale de los rodajes, nunca de la larga. La calidad entra en la semana 9 de forma gradual: tempo y zancadas primero, cuestas cortas en cinta en la S11 e intervalos en el bloque 4, después del 10K.</p>
   </div>
 
-  <div class="rule">
-    <div class="rt">Hueco estructural conocido · se decide al cerrar la semana 8</div>
-    <p>Con tres días de carrera, la larga de la S17 son 19 km de 33: el <strong>58 % del volumen semanal</strong>. Lo sano es 35–40 %. Es aritmética de correr tres veces por semana, no opinión.</p>
-    <p>Un cuarto día de carrera corta la bajaría a ~45 % y repartiría el impacto, que es justo lo que necesita un corredor de 111 kg. No entra ahora porque la adherencia de tres días todavía no está probada. Se decide con el dato del bloque 2 en la mano, al cerrar el 27 de septiembre.</p>
+  <div class="rule ok">
+    <div class="rt">Cuarto día de carrera · activado el 28 de septiembre</div>
+    <p>Entró porque la semana 8 cerró 3 de 3. <strong>No cambia la proporción de la larga:</strong> con el pico topado en 33 km, los 19 km de la S17 siguen siendo el 58 % de la semana, con tres o con cuatro días. Lo que compra son <strong>sesiones más cortas</strong>, que atacan el modo de falla real: acelerar cuando falta tiempo.</p>
+    <p>Costo: seis días de entrenamiento a la semana, con viernes y domingo limpios. Si se come noches o el domingo, sale sin discutir.</p>
   </div>
 
   <div class="rule">
@@ -388,16 +393,16 @@ tr.tot td{background:var(--panel-2);font-weight:600}
 
 <section>
   <div class="sec-head"><span class="sec-num">05</span><h2>Semana tipo · rediseñada sobre los días que sí usas</h2></div>
-  <div class="sec-note">La plantilla anterior ponía la carrera en martes, miércoles y sábado, y en el bloque 1 el sábado cerró en cero. Esta versión se escribió el 30 de agosto sobre el calendario real: gimnasio de mañana, carrera de tarde entre semana, larga el sábado temprano.</div>
+  <div class="sec-note">Rediseñada el 28 de septiembre con el cuarto día. Todas las carreras por la mañana, que es lo que haces desde el 9 de septiembre, y el gimnasio de noche. Viernes y domingo limpios.</div>
 
   <div class="scroll">
   <table>
-    <thead><tr><th>Día</th><th>Mañana</th><th>Tarde</th><th>Por qué ahí</th></tr></thead>
+    <thead><tr><th>Día</th><th>Mañana</th><th>Noche</th><th>Por qué ahí</th></tr></thead>
     <tbody>
-      <tr><td class="n">Lunes</td><td class="n">Gym pierna fuerza + core</td><td class="n">—</td><td>48 h después de la larga y a máxima distancia de la siguiente</td></tr>
-      <tr><td class="n">Martes</td><td class="n">Gym empuje</td><td class="n lo">Carrera fácil corta</td><td>El tren superior casi no interfiere con la carrera</td></tr>
-      <tr><td class="n">Miércoles</td><td class="n">—</td><td class="n">—</td><td>Día limpio</td></tr>
-      <tr><td class="n">Jueves</td><td class="n">Gym tracción + sóleo</td><td class="n lo">Carrera fácil + zancadas</td><td>Segunda dosis de pantorrilla lejos del sábado</td></tr>
+      <tr><td class="n">Lunes</td><td class="n lo">Carrera corta · 20 min</td><td class="n">—</td><td>Reparte el impacto de la semana sin sumar fatiga</td></tr>
+      <tr><td class="n">Martes</td><td class="n lo">Carrera fácil</td><td class="n">Gym pierna fuerza + core</td><td>Pierna de noche deja unas 35 h antes de la siguiente carrera. En lunes quedaría a 11 h</td></tr>
+      <tr><td class="n">Miércoles</td><td class="n">—</td><td class="n">Gym empuje</td><td>El tren superior casi no interfiere con la carrera</td></tr>
+      <tr><td class="n">Jueves</td><td class="n lo">Carrera fácil</td><td class="n">Gym tracción + sóleo</td><td>Segunda dosis de pantorrilla, lejos del sábado</td></tr>
       <tr><td class="n">Viernes</td><td class="n">—</td><td class="n">—</td><td>Se protege a propósito: piernas frescas 24 h antes de la larga, sin trabajo de pantorrilla</td></tr>
       <tr><td class="n">Sábado</td><td class="n lo">Tirada larga · salida 6:45</td><td class="n">—</td><td>La sesión más importante del plan, en el único horario fresco de la semana</td></tr>
       <tr><td class="n">Domingo</td><td class="n">—</td><td class="n">—</td><td>Descanso total innegociable. Aquí se construye la adaptación, y aquí está Fernanda</td></tr>
@@ -406,9 +411,10 @@ tr.tot td{background:var(--panel-2);font-weight:600}
   </div>
 
   <div class="rule hard" style="margin-top:16px">
-    <div class="rt">Regla de corte del sábado · escrita el 30 de agosto, no se discute después</div>
+    <div class="rt">Regla de corte del sábado · cerrada sin activarse el 26 de septiembre</div>
     <p>En el bloque 1 cayeron <strong>0 de 9 carreras en sábado</strong> y las tres tiradas largas prescritas ahí fallaron. Propuse mudar la larga al domingo y decidiste mantener el sábado. Se acepta con regla escrita:</p>
     <p><strong>Si una tirada larga de sábado se cae en el bloque 2, el calendario se muda al domingo para el bloque 3.</strong> Sin discusión y sin renegociar en el momento.</p>
+    <p><strong>Resultado:</strong> cuatro de cuatro largas del bloque 2 cayeron en sábado. La regla no se activó y el sábado se queda.</p>
   </div>
 
   <div class="grid2">
@@ -417,23 +423,23 @@ tr.tot td{background:var(--panel-2);font-weight:600}
       <ul>
         <li><strong>Pierna una sola vez por semana</strong> mientras suba el volumen de carrera. No negociable.</li>
         <li>Tren inferior en <strong>modo fuerza</strong>: 4–6 reps con carga alta, sin fallo. No hipertrofia. Protege tendón y mejora economía.</li>
-        <li><strong>Elevación de talón dos veces por semana:</strong> lunes de pie con carga, jueves sentado para sóleo. Nunca el viernes.</li>
+        <li><strong>Elevación de talón dos veces por semana:</strong> de pie con carga el día de pierna, sentado para sóleo el jueves. Nunca el viernes.</li>
         <li>Torso casi intacto: es lo que menos interfiere.</li>
         <li>Bloques 4–5: pierna a mantenimiento 2×5. <strong>Últimos 10 días: cero tren inferior.</strong></li>
-        <li>Desde la S13 el lunes cambia a énfasis excéntrico para cubrir el descenso del circuito. Detalle en la sección 07.</li>
+        <li>Desde la S13 la sesión de pierna cambia a énfasis excéntrico para cubrir el descenso del circuito. Detalle en la sección 07.</li>
       </ul>
     </div>
     <div class="card">
       <h3>Pierna en modo fuerza · plantilla</h3>
       <p class="n" style="font-family:var(--mono);font-size:12.5px;color:var(--ink)">Sentadilla o prensa 4×5 @ RPE 7–8 · Peso muerto rumano 3×6 · Zancada 3×6–8 por pierna · Elevación de talón de pie 4×8 con carga · Core 10 min</p>
       <p>Sin fallo muscular. Si sales del gimnasio sin poder caminar bien, la sesión estuvo mal dosificada para este bloque.</p>
-      <p><strong style="color:var(--alert)">Pendiente que ya cuesta:</strong> cinco semanas, once sesiones declaradas, cero cargas registradas. Sin números no sé si la fuerza progresa o solo acompaña, y el gimnasio queda como declaración, no como dato.</p>
+      <p><strong style="color:var(--alert)">Pendiente que ya cuesta:</strong> cargas completas solo del 7 al 9 de septiembre. La pierna lleva sin números desde el 7 sep. Sin ellos no sé si la fuerza progresa o solo acompaña, y el excéntrico de la S13 se dosifica a ciegas.</p>
     </div>
   </div>
 </section>
 
 <section>
-  <div class="sec-head"><span class="sec-num">06</span><h2>Cómo mides · la cadencia gobierna, el ritmo acota, la FC informa</h2></div>
+  <div class="sec-head"><span class="sec-num">06</span><h2>Cómo mides · el ritmo de sesión controla, la cadencia protege, la FC informa</h2></div>
   <div class="sec-note">Esta sección cambió dos veces, y las dos por error de calibración del entrenador. La prueba del habla no controló nada. El techo de 155 ppm resultaba inalcanzable corriendo continuo. Ninguna de las dos regresa.</div>
 
   <div class="rule hard">
@@ -454,6 +460,12 @@ tr.tot td{background:var(--panel-2);font-weight:600}
     <p>Las fáciles entre semana se corren por <strong>método correr-caminar</strong> 4:1 y la tirada larga 5:1. El promedio de la sesión es lo que gobierna la carga y se mantiene entre <strong>9:00 y 9:40 min/km</strong>. Desde el 20 de septiembre <strong>se prescribe en minutos, no en kilómetros</strong>, y el control es uno solo: ritmo promedio de sesión ≥ 9:00/km, revisado al terminar. La alerta del reloj va en 8:30–9:10 por bloque en 4:1 y 8:50–9:20 en 5:1.</p>
     <p><strong>Cuando falta tiempo se recorta la distancia, nunca se sube el ritmo.</strong> Los metros por bloque se retiraron: en la semana 7 salieron +8 %, +24 % y +14 %, peor que los rangos. Con distancia por cumplir y el reloj encima, la única palanca es la velocidad. Con tiempo prescrito, no hay nada que alcanzar.</p>
     <p><strong>La cadencia ya no necesita regla.</strong> Piso 156 y se sostiene solo: 156.0 el jueves 10, y 155.8 a 154.0 en 50 minutos de larga el sábado 12. Si la cadencia y el ritmo entran en conflicto, <strong>gana el ritmo</strong>. Una alerta de cadencia sola empuja a acelerar, porque acortar el paso es antinatural y nadie lo hace por instinto.</p>
+  </div>
+
+  <div class="rule hard">
+    <div class="rt">Calidad desde la semana 9 · días duros duros, fáciles fáciles</div>
+    <p>Ritmos con VDOT 23.6: <strong>tempo 7:40–7:50/km</strong>, esfuerzo de 7 de 10, el que sostendrías una hora. Zancadas de 20 segundos por sensación, rápidas y sueltas. El tempo arranca en 12 minutos, el 9 % de la semana, bajo el tope de 10 % de Daniels.</p>
+    <p>Tus fáciles salieron a 8:10 por bloque, apenas 25 s/km más lentos que el tempo. <strong>Si una semana con calidad cierra con fáciles bajo 9:00, la calidad sale la semana siguiente.</strong> Cierres fuertes a sentimiento, nunca: en el bloque 4 entran finales progresivos escritos con ritmo y minutos.</p>
   </div>
 
   <div class="rule hard">
@@ -490,7 +502,7 @@ tr.tot td{background:var(--panel-2);font-weight:600}
       <h3>Lo que el Garmin va a decir y no hay que creerle</h3>
       <p>El FR165 va a soltar un <strong>VO2max estimado</strong> y un <strong>predictor de medio maratón</strong>. Los dos leen más optimistas que la realidad: estiman sobre peso corporal y no sobre rendimiento medido, son generosos con corredores nuevos y <strong>no ajustan por altitud</strong>.</p>
       <p>Cuando diga que puedes correr 2:15, no le creas. El VDOT medido en esfuerzo real es 23.6 y proyecta cerca de <strong>2:52 a nivel del mar</strong>.</p>
-      <p>Configuración: zonas en <strong>ppm directos</strong>, no en porcentaje (el 165 no detecta umbral de lactato). Alerta de ritmo 8:30–8:55 para los bloques y alerta de cadencia en 155. Auto lap a 1 km, salvo el día de la carrera. Dormir con el reloj para la línea base de HRV: necesita unas 19 noches. Banda pectoral antes del test del 3 de octubre.</p>
+      <p>Configuración: zonas en <strong>ppm directos</strong>, no en porcentaje (el 165 no detecta umbral de lactato). Alerta de ritmo 8:30–9:10 en 4:1 y 8:50–9:20 en 5:1, cadencia en 156. Auto lap a 1 km, salvo el día de la carrera. Dormir con el reloj para la línea base de HRV: necesita unas 19 noches.</p>
     </div>
   </div>
 
@@ -500,13 +512,13 @@ tr.tot td{background:var(--panel-2);font-weight:600}
     <tbody>
       <tr><td class="n">4</td><td class="n">dom 30 ago</td><td class="n lo">Máximo sostenible</td><td>Hecho. VDOT 23.6 y FCU provisional 186</td></tr>
       <tr><td class="n">5</td><td class="n">~sáb 5 sep</td><td class="n"><s>Campo 20 min</s></td><td class="mid">CANCELADO. El del 30 ago es mejor protocolo (29:31 contra 20 min). Repetir un máximo en 7 días con esta base es riesgo sin información nueva</td></tr>
-      <tr><td class="n">9</td><td class="n">sáb 3 oct</td><td class="n">Campo 20 min</td><td>Valida la FCU y las zonas. En la mañana y con ritmo parejo</td></tr>
-      <tr><td class="n">12</td><td class="n">sáb 24 oct</td><td class="n hi">10K</td><td><strong>Punto de decisión de la meta.</strong> De aquí se recalculan VDOT y FCU</td></tr>
+      <tr><td class="n">9</td><td class="n">sáb 3 oct</td><td class="n"><s>Campo 20 min</s></td><td class="mid">CANCELADO el 28 sep. Sin banda pectoral, redundante con el 10K del 24 oct y encima de la larga de 84 min</td></tr>
+      <tr><td class="n">12</td><td class="n">sáb 24 oct</td><td class="n hi">10K</td><td><strong>Punto de decisión de la meta.</strong> De aquí se recalculan VDOT y FCU. Se corre solo sin síntomas cardiacos</td></tr>
       <tr><td class="n">16</td><td class="n">sáb 21 nov</td><td class="n">10K</td><td>Ajuste final de ritmo objetivo. De aquí se recalculan VDOT y FCU</td></tr>
     </tbody>
   </table>
   </div>
-  <p style="font-family:var(--mono);font-size:12px;color:var(--ink-faint);margin-top:9px">Después de la S9 no hay más tests de FCU aparte: se re-deriva de los 10K de la S12 y la S16. Dos esfuerzos máximos en la misma ventana no compran información y sí compran riesgo.</p>
+  <p style="font-family:var(--mono);font-size:12px;color:var(--ink-faint);margin-top:9px">No hay test de FCU aparte: se re-deriva de los 10K de la S12 y la S16. El de la S9 se canceló el 28 de septiembre. Dos esfuerzos máximos en la misma ventana no compran información y sí compran riesgo.</p>
 </section>
 
 <section>
@@ -653,7 +665,7 @@ tr.tot td{background:var(--panel-2);font-weight:600}
       <tr><td>VDOT real al arranque</td><td class="n">20.0 supuesto</td><td class="n">18.7 medido</td></tr>
       <tr><td>VDOT vigente</td><td class="n">22.6 · base inflada por caminatas</td><td class="n lo">23.6 · esfuerzo máximo real</td></tr>
       <tr><td>Medio maratón hoy · nivel del mar</td><td class="n">≈ 2:56</td><td class="n">≈ 2:52</td></tr>
-      <tr><td>VDOT necesario para sub-2:00 en CDMX</td><td class="n">39.5</td><td class="n hi">39.5 · +16 puntos en 15 semanas</td></tr>
+      <tr><td>VDOT necesario para sub-2:00 en CDMX</td><td class="n">39.5</td><td class="n hi">39.5 · +16 puntos en 11 semanas</td></tr>
       <tr><td>Pico de volumen del plan</td><td class="n">48 km/sem</td><td class="n mid">33 km/sem</td></tr>
       <tr><td>Tirada larga máxima</td><td class="n">20 km</td><td class="n mid">19 km</td></tr>
       <tr><td>Proyección para el 13 dic</td><td class="n">2:10 – 2:22</td><td class="n hi">2:20 – 2:35</td></tr>
@@ -686,7 +698,8 @@ tr.tot td{background:var(--panel-2);font-weight:600}
     <p><code>10K &lt; 58:00</code> → sub-2:00 sigue vivo. Bloques 4 y 5 a ritmo meta. Equivale a <strong>VDOT 33.6</strong>, o sea +10 puntos en 8 semanas.<br>
     <code>10K 58:00 – 1:04</code> → meta a 2:05–2:12, prioridad a resistencia. Equivale a <strong>VDOT 29.9</strong>, o sea +6.3 puntos.<br>
     <code>10K &gt; 1:04</code> → la meta pasa a terminar fuerte sin caminar.</p>
-    <p>Tu trayectoria real fue <strong>+4.9 puntos en cuatro semanas</strong> y las ganancias de readquisición se desaceleran, no se mantienen. <strong>Con lo que hay hoy, la rama más probable es la tercera.</strong> Lo que mueve eso no es correr más rápido las fáciles: es no perder sesiones y meter el cuarto día en el bloque 3.</p>
+    <p>Tu trayectoria real fue <strong>+4.9 puntos en cuatro semanas</strong> y las ganancias de readquisición se desaceleran, no se mantienen. <strong>Con lo que hay hoy, la rama más probable es la tercera.</strong> Lo que mueve eso no es correr más rápido las fáciles: es no perder sesiones, y el cuarto día ya entró.</p>
+    <p>El 10K se corre solo si no apareció ningún síntoma cardiaco de la sección 10. Sin valoración, es el único esfuerzo máximo del bloque 3.</p>
   </div>
 </section>
 
@@ -698,6 +711,9 @@ tr.tot td{background:var(--panel-2);font-weight:600}
   <table>
     <thead><tr><th>Señal</th><th>Qué haces</th></tr></thead>
     <tbody>
+      <tr><td class="hi">Dolor, presión u opresión en pecho, brazo, cuello o mandíbula</td><td class="hi">Paras. Urgencias, no consulta</td></tr>
+      <tr><td class="hi">Falta de aire desproporcionada, palpitaciones, ritmo irregular, mareo o desmayo</td><td class="hi">Paras. Médico antes de volver a correr</td></tr>
+      <tr><td class="hi">La FC no baja al caminar el minuto</td><td class="hi">Paras. Reportas antes de la siguiente</td></tr>
       <tr><td>Molestia que desaparece al calentar y no empeora</td><td>Corres. Registras la sesión con nota</td></tr>
       <tr><td>Molestia que persiste después de calentar</td><td>Cortas la sesión a la mitad. Sin calidad, sin zancadas. Reportas</td></tr>
       <tr><td>Dolor que altera tu forma de correr</td><td>Paras. Cero carrera 48 h. Reportas antes de la siguiente</td></tr>
@@ -714,25 +730,25 @@ tr.tot td{background:var(--panel-2);font-weight:600}
   <p style="margin-top:14px;font-size:14px;color:var(--ink-dim)">Los tres puntos de falla más probables en tu perfil: <strong style="color:var(--ink)">tendón de Aquiles y sóleo</strong> (de ahí la elevación de talón dos veces por semana), <strong style="color:var(--ink)">periostitis tibial</strong> (de ahí el correr-caminar antes que el continuo) y <strong style="color:var(--ink)">rodilla de corredor</strong> (de ahí la pierna una sola vez por semana). El dolor tardío pega a las 24–48 h: un "sin molestias" reportado a dos horas de una sesión dura no es dato.</p>
 
   <div class="rule hard" style="margin-top:18px">
-    <div class="rt">Pendientes abiertos · antes del 28 de septiembre, que es cuando arranca el bloque 3</div>
-    <p><strong>Valoración cardiológica con fecha.</strong> La FC máxima observada de 199 a los 32 años está 11 ppm sobre la fórmula por edad, y el bloque 3 sube intensidad. Si el 28 de septiembre no hay valoración hecha o agendada, <strong>el bloque 3 arranca sin trabajo de calidad</strong>.</p>
-    <p><strong>InBody de control</strong>, atrasado desde el 29 de agosto. Sin él no se sabe si el bloque de construcción movió composición o solo peso.</p>
-    <p><strong>Banda pectoral</strong> antes del test del 3 de octubre.</p>
+    <div class="rt">Sin valoración cardiológica · decisión del 28 de septiembre</div>
+    <p>La regla estaba escrita: si el 28 de septiembre no había valoración hecha o agendada, el bloque 3 arrancaba sin trabajo de calidad. Se aplicó el 28 y se revirtió el 29 a tu pedido: con cero diagnósticos confirmados, la guía estándar permite progresar.</p>
+    <p>La sustituye la guía de pre-participación del ACSM: quien ya entrena con regularidad, sin síntomas y sin enfermedad cardiaca, metabólica o renal diagnosticada, puede progresar a esfuerzo vigoroso de forma gradual sin autorización médica. Confirmado el 28 de septiembre: sin diagnóstico de diabetes, hipertensión ni enfermedad cardiaca o renal. El criterio aplica. Los síntomas de las primeras tres filas de la tabla mandan sobre todo el plan.</p>
+    <p>Lo vigente: test del 3 de octubre cancelado · tempo y zancadas desde la S9 · cuestas cortas en cinta desde la S11 · intervalos en el bloque 4 · cierres fuertes a sentimiento, nunca · el 10K del 24 de octubre se mantiene si no aparece ningún síntoma.</p>
   </div>
 
   <div class="rule">
     <div class="rt">Pendientes de esta semana</div>
-    <p>Gimnasio de la S4: cuántas sesiones y con qué cargas · cargas y series en cada sesión, cinco semanas sin un número · sensación 1-10 por sesión · zonas en ppm cargadas en Garmin Connect · dormir con el reloj para la línea base de HRV · molestias tardías del test del 30 de agosto · <strong>alerta de ritmo 8:30–8:55 y alerta de cadencia 155 activas en el reloj antes del jueves</strong>.</p>
+    <p>Cargas de pierna del lunes 28 en Notion · cargas de empuje y tracción de la semana · los cuatro entrenamientos estructurados cargados con su alerta de ritmo · sensación en Strava después de cada sesión · <strong>InBody de control, atrasado desde el 29 de agosto</strong>.</p>
   </div>
 </section>
 
 <div class="foot">
-  Plan v12 · Rock 'n' Roll Mexico City · actualizado 20 sep 2026 con el cierre de la semana 7<br>
-  VDOT vigente 23.6 · FCU 186 provisional, confirmada como baja · prescripción en minutos · sesión ≥ 9:00/km · cadencia piso 156, resuelta · larga saliendo 6:45 · cuarto día aprobado para el bloque 3<br>
+  Plan v14 · Rock 'n' Roll Mexico City · actualizado 29 sep 2026 · cierre del bloque 2 y entrada de la calidad<br>
+  VDOT vigente 23.6 · FCU 186 provisional, confirmada como baja · prescripción en minutos · sesión ≥ 9:00/km · larga saliendo 6:45 · cuatro días de carrera desde la S9 · tempo y zancadas desde la S9<br>
   Rampa vigente 10·11·13·11 — 13·16·18·14 — 17·19·22·16 — 24·27·30·22 — 33·24·26 · pico 33 km/sem<br>
   Calle en llano + subida en caminadora + descenso solo en gimnasio desde la S13<br>
-  Bloques 3 a 5 se escriben al cierre del anterior con datos reales · recalibración obligatoria: semanas 8, 9, 12, 16<br>
-  Fuente de ejecución: Strava · Fuente de continuidad: BITACORA-21K-CDMX.md
+  Bloques 3 a 5 se escriben al cierre del anterior con datos reales · recalibración obligatoria: semanas 8, 12, 16<br>
+  Fuente de ejecución: Strava · Fuente de continuidad: bitácora en Notion
 </div>
 
 </div>
