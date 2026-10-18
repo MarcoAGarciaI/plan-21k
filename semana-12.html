@@ -102,6 +102,7 @@ footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-si
 .route .mono{margin-bottom:4px;display:block}
 .route[hidden]{display:none}
 .leaflet-container{font-family:var(--body);background:#0d1b24}
+.leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.85) contrast(.9) saturate(.6)}
 .leaflet-control-attribution{background:rgba(10,22,32,.8)!important;color:var(--ink-faint)!important}
 .leaflet-control-attribution a{color:var(--ink-dim)!important}
 .leaflet-bar a{background:var(--panel)!important;color:var(--ink)!important;border-color:var(--line)!important}
@@ -262,7 +263,7 @@ footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-si
   var lng=getComputedStyle(document.documentElement).getPropertyValue('--long').trim()||'#4B8FD4';
   var gold='#E8A33D';
   var map=L.map('map',{scrollWheelZoom:false,zoomControl:true});
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{maxZoom:19,subdomains:'abcd',attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(map);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'&copy; OpenStreetMap'}).addTo(map);
   function line(k,c,t){return L.polyline(R[k],{color:c,weight:5,opacity:.95}).bindTooltip(t,{sticky:true}).addTo(map);}
   function hotel(p,t){return L.circleMarker(p,{radius:7,color:'#07131B',weight:2,fillColor:gold,fillOpacity:1}).bindTooltip(t).addTo(map);}
   var C={
